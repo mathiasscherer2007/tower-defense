@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bmps8lsrkao3p"]
+
+[ext_resource type="Script" uid="uid://fhtq7uel1r2s" path="res://Scripts/baseenemy.gd" id="1_xxilf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5n3s"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_y5n3s"]
+lightmap_size_hint = Vector2i(9, 8)
+material = SubResource("StandardMaterial3D_y5n3s")
+radius = 0.25
+height = 1.0
+radial_segments = 32
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxilf"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_7llvr"]
+material = SubResource("StandardMaterial3D_xxilf")
+inner_radius = 0.1
+outer_radius = 0.2
+rings = 12
+ring_segments = 6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxilf"]
+radius = 0.25
+height = 1.0
+
+[node name="baseenemy" type="Area3D" unique_id=1835514579]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_xxilf")
+speed = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1220396290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50046444, 0)
+mesh = SubResource("CapsuleMesh_y5n3s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1887624479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75046444, -0.1)
+mesh = SubResource("TorusMesh_7llvr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=266472795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5008197, 0)
+shape = SubResource("CapsuleShape3D_xxilf")
