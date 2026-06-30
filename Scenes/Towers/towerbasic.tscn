@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cv8hv67hcixps"]
+
+[ext_resource type="PackedScene" uid="uid://behk5tld3h0it" path="res://Scenes/Towers/basetower.tscn" id="1_8fksc"]
+[ext_resource type="Script" uid="uid://cm1cu74tydj3p" path="res://Scripts/Towers/towerbasic.gd" id="2_2pq36"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_2pq36"]
+inner_radius = 0.05
+outer_radius = 0.15
+
+[sub_resource type="BoxMesh" id="BoxMesh_8fksc"]
+size = Vector3(0.2, 0.3, 0.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2pq36"]
+radius = 1.0
+
+[node name="towerbasic" unique_id=430822432 instance=ExtResource("1_8fksc")]
+script = ExtResource("2_2pq36")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="geometry" parent_id_path=PackedInt32Array(1490519861) index="0" unique_id=1762982706]
+transform = Transform3D(0.6171851, 0, 0, 0, 0.49153352, 0, 0, 0, 0.69767153, 0, 0.24398509, -0.019297654)
+mesh = SubResource("TorusMesh_2pq36")
+
+[node name="MeshInstance3D" parent="geometry" parent_id_path=PackedInt32Array(1490519861) index="1" unique_id=649859000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_8fksc")
+
+[node name="CollisionShape3D" parent="Area3D" parent_id_path=PackedInt32Array(1029102996) index="0" unique_id=1699227032]
+shape = SubResource("SphereShape3D_2pq36")

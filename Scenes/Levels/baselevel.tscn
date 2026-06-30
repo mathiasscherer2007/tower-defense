@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d3qqww7n8hthe"]
 
 [ext_resource type="Script" uid="uid://c3t6sqxgx14iy" path="res://Scripts/baselevel.gd" id="1_tp3lv"]
+[ext_resource type="PackedScene" uid="uid://cv8hv67hcixps" path="res://Scenes/Towers/towerbasic.tscn" id="2_krf4b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yhqrn"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -58,7 +59,6 @@ fov = 54.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry" unique_id=1977099350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, -0.5733043, 1)
-use_collision = true
 size = Vector3(20, 1, 20)
 material = SubResource("StandardMaterial3D_yhqrn")
 
@@ -88,5 +88,11 @@ size = Vector3(1.199707, 0.03, 0.35)
 material = SubResource("StandardMaterial3D_b02go")
 
 [node name="Path3D" type="Path3D" parent="." unique_id=469573833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.054871738, 0)
 curve = SubResource("Curve3D_yhqrn")
 debug_custom_color = Color(1, 0, 0, 1)
+
+[node name="Towers" type="Node3D" parent="." unique_id=1691248232]
+
+[node name="towerbasic" parent="Towers" unique_id=430822432 instance=ExtResource("2_krf4b")]
+transform = Transform3D(-0.9977221, 0, 0.067458056, 0, 1, 0, -0.067458056, 0, -0.9977221, 2.3742867, -0.068572596, 1.4028766)
