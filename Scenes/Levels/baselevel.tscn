@@ -52,7 +52,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1784900535]
-transform = Transform3D(0.92718387, -0.28485313, 0.24328753, 0, 0.64944804, 0.760406, -0.3746066, -0.70503616, 0.6021577, 2.17, 1.28, 2.265)
+transform = Transform3D(0.92718387, -0.28485313, 0.24328752, 0, 0.64944804, 0.760406, -0.3746066, -0.70503616, 0.6021577, 2.0810719, 1.540246, 2.5609996)
 fov = 54.0
 
 [node name="Geometry" type="Node3D" parent="." unique_id=1299036170]

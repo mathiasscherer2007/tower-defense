@@ -14,6 +14,26 @@ config/name="tower defense"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Enemies=""
+Towers=""
+
+[layer_names]
+
+3d_render/layer_1="Enemies"
+3d_render/layer_2="Bullets"
+3d_render/layer_3="Towers"
+3d_render/layer_4="Geometry"
+3d_physics/layer_1="Enemies"
+3d_navigation/layer_1="Enemies"
+3d_physics/layer_2="Bullets"
+3d_navigation/layer_2="Bullets"
+3d_physics/layer_3="Towers"
+3d_navigation/layer_3="Towers"
+3d_physics/layer_4="Geometry"
+3d_navigation/layer_4="Geometry"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
