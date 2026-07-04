@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b4otkkg0v2n1g"]
+
+[ext_resource type="Script" uid="uid://bxhabrdawn022" path="res://Scripts/Levels/level.gd" id="1_f1n8c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tyfcb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 0.8
+
+[sub_resource type="Sky" id="Sky_f1n8c"]
+sky_material = SubResource("ProceduralSkyMaterial_tyfcb")
+
+[sub_resource type="Environment" id="Environment_7x7pb"]
+background_mode = 2
+sky = SubResource("Sky_f1n8c")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_yjxcc"]
+
+[node name="Level" type="Node3D" unique_id=2011401683]
+script = ExtResource("1_f1n8c")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=768327228]
+environment = SubResource("Environment_7x7pb")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=124783030]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Path3D" type="Path3D" parent="." unique_id=932929914]
+curve = SubResource("Curve3D_yjxcc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1009776428]
+
+[node name="Geometry" type="Node3D" parent="." unique_id=1905822120]
