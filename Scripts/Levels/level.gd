@@ -1,6 +1,6 @@
 class_name Level extends Node3D
 
-var waves: Dictionary;
+@export var waves: Dictionary;
 """
     {
         1: {
@@ -12,3 +12,8 @@ var waves: Dictionary;
 
     on wave start, creates a bunch of timers that send a signal to spawn their enemies
 """
+
+# var test_enemy = preload("");
+
+func _ready() -> void:
+    print("level loaded!")
