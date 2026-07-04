@@ -6,6 +6,7 @@ class_name Level extends Node3D
         1: {
                 delayWave: 1000,   # Delay from start of the wave
                 delayEnemies: 400, # Delay between enemies
+                amount: 3,         # Number of enemies spawned
                 enemy: *path to enemy scene*
             };
     }

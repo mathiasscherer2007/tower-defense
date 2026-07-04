@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://emwiu7nowaah"]
+
+[ext_resource type="Script" uid="uid://d4n4rsgtwi3gd" path="res://Scripts/Enemies/enemy.gd" id="1_613su"]
+
+[node name="Enemy" type="Node3D" unique_id=1256829774]
+script = ExtResource("1_613su")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=691784335]
+
+[node name="Collision" type="Area3D" parent="." unique_id=266572519]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" unique_id=139847431]
+
+[connection signal="area_entered" from="Collision" to="." method="_on_collision_area_entered"]

@@ -16,7 +16,9 @@ point_count = 7
 curve = SubResource("Curve3D_7joup")
 
 [node name="Camera3D" parent="." index="3" unique_id=1009776428]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 2.075, 2.73)
+transform = Transform3D(0.8660254, 0.25, -0.4330127, 0, 0.8660254, 0.5, 0.5, -0.4330127, 0.75, -1.515, 2.195, 2.67)
+projection = 1
+size = 3.0
 
 [node name="Geometry" parent="." index="4" unique_id=1905822120]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
