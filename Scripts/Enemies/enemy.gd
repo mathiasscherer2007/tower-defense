@@ -1,8 +1,8 @@
 class_name Enemy extends Node3D
 
-@export var health: int;
-@export var speed: int;
-var path_follow: PathFollow3D;
+@export var health: float
+@export var speed: float
+var path_follow: PathFollow3D
 
 func setup(new_path_follow: PathFollow3D):
 	path_follow = new_path_follow
@@ -10,7 +10,7 @@ func setup(new_path_follow: PathFollow3D):
 func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
 	# TODO: make elaborate signal for enemy reaching path end
-	if path_follow.progress_ratio >= 0.999:
+	if path_follow.progress_ratio >= 0.99:
 		queue_free()
 
 func _process(_delta: float) -> void:

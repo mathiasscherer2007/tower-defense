@@ -1,6 +1,8 @@
 class_name Level extends Node3D
 
-@export var waves: Dictionary;
+@export var enemy_scale: Vector3
+@export var enemy_speed_scale: float
+@export var waves: Dictionary
 """
     {
         1: {
@@ -17,4 +19,4 @@ class_name Level extends Node3D
 # var test_enemy = preload("");
 
 func _ready() -> void:
-    print("level loaded!")
+	print("level loaded!")

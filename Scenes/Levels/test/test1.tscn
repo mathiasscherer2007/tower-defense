@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cyc4kcccx26jy"]
 
 [ext_resource type="PackedScene" uid="uid://b4otkkg0v2n1g" path="res://Scenes/Levels/level.tscn" id="1_7joup"]
+[ext_resource type="Script" uid="uid://lrs5qspu3hb8" path="res://Scripts/Levels/test_1.gd" id="2_u46i1"]
 [ext_resource type="Material" uid="uid://cb0g4lwi05bau" path="res://Scenes/Levels/test/debug_path.tres" id="2_y5gs5"]
 
 [sub_resource type="Curve3D" id="Curve3D_7joup"]
@@ -11,8 +12,12 @@ _data = {
 point_count = 7
 
 [node name="test1" unique_id=2011401683 instance=ExtResource("1_7joup")]
+script = ExtResource("2_u46i1")
+enemy_scale = Vector3(0.3, 0.3, 0.3)
+enemy_speed_scale = 0.3
 
 [node name="Path3D" parent="." index="2" unique_id=932929914]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 curve = SubResource("Curve3D_7joup")
 
 [node name="Camera3D" parent="." index="3" unique_id=1009776428]
