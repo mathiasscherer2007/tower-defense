@@ -9,12 +9,13 @@ func setup(new_path_follow: PathFollow3D):
 
 func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
+	# TODO: make elaborate signal for enemy reaching path end
+	if path_follow.progress_ratio >= 0.999:
+		queue_free()
 
 func _process(_delta: float) -> void:
 	# TODO: make elaborate signal for enemy death
 	if health <= 0:
-		queue_free()
-	if path_follow.progress_ratio >= 0.999:
 		queue_free()
 
 func _on_collision_area_entered(_area: Area3D) -> void:

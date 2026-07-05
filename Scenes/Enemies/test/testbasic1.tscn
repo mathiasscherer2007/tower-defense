@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cr5vuo0jc2tjq"]
+
+[ext_resource type="PackedScene" uid="uid://emwiu7nowaah" path="res://Scenes/Enemies/enemy.tscn" id="1_duvtb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_h1gco"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aloet"]
+albedo_color = Color(0.627451, 0.1254902, 0.9411765, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n0t5r"]
+material = SubResource("StandardMaterial3D_aloet")
+top_radius = 0.25
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrsoy"]
+
+[node name="Enemy" unique_id=1256829774 instance=ExtResource("1_duvtb")]
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=691784335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_h1gco")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1" unique_id=690536378]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, 0.25, 0, -0.25, -1.0927847e-08, 0, 1.5060208, -0.511101)
+mesh = SubResource("CylinderMesh_n0t5r")
+
+[node name="Collision" parent="." index="2" unique_id=266572519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" parent="Collision" index="0" unique_id=139847431]
+shape = SubResource("CapsuleShape3D_lrsoy")
