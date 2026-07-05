@@ -32,5 +32,3 @@ shadow_enabled = true
 fov = 54.0
 
 [node name="Geometry" type="Node3D" parent="." unique_id=1905822120]
-
-[node name="Bullets" type="Node3D" parent="." unique_id=370725088]
