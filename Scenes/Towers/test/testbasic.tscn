@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dsd6jkwa7ae8g"]
+
+[ext_resource type="PackedScene" uid="uid://c1ljijd1c6d02" path="res://Scenes/Towers/tower.tscn" id="1_lcgip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcgip"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hoax2"]
+material = SubResource("StandardMaterial3D_lcgip")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrwid"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_f2rtd"]
+material = SubResource("StandardMaterial3D_qrwid")
+
+[node name="TestBasic" unique_id=1272181662 instance=ExtResource("1_lcgip")]
+max_range = 10.0
+
+[node name="Range" parent="." index="0" unique_id=712720790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Firerate" parent="." index="1" unique_id=2144439341]
+wait_time = 0.5
+
+[node name="MeshInstance3D" parent="." index="2" unique_id=967792431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_hoax2")
+
+[node name="Front" type="MeshInstance3D" parent="." index="3" unique_id=1888794908]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.5449944, -0.20572478)
+mesh = SubResource("TorusMesh_f2rtd")

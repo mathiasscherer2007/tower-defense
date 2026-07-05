@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4otkkg0v2n1g" path="res://Scenes/Levels/level.tscn" id="1_7joup"]
 [ext_resource type="Script" uid="uid://lrs5qspu3hb8" path="res://Scripts/Levels/test_1.gd" id="2_u46i1"]
 [ext_resource type="Material" uid="uid://cb0g4lwi05bau" path="res://Scenes/Levels/test/debug_path.tres" id="2_y5gs5"]
+[ext_resource type="PackedScene" uid="uid://dsd6jkwa7ae8g" path="res://Scenes/Towers/test/testbasic.tscn" id="4_4faxc"]
 
 [sub_resource type="Curve3D" id="Curve3D_7joup"]
 _data = {
@@ -16,6 +17,9 @@ script = ExtResource("2_u46i1")
 enemy_scale = Vector3(0.3, 0.3, 0.3)
 enemy_speed_scale = 0.3
 
+[node name="Sun" parent="." index="1" unique_id=124783030]
+transform = Transform3D(-0.9214976, 0.33635062, -0.19419211, 2.7805946e-08, 0.49999994, 0.86602545, 0.38838425, 0.7980403, -0.46074873, 0, 0, 0)
+
 [node name="Path3D" parent="." index="2" unique_id=932929914]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 curve = SubResource("Curve3D_7joup")
@@ -23,7 +27,9 @@ curve = SubResource("Curve3D_7joup")
 [node name="Camera3D" parent="." index="3" unique_id=1009776428]
 transform = Transform3D(0.8660254, 0.25, -0.4330127, 0, 0.8660254, 0.5, 0.5, -0.4330127, 0.75, -1.515, 2.195, 2.67)
 projection = 1
-size = 3.0
+size = 4.0
+near = 0.001
+far = 10.0
 
 [node name="Geometry" parent="." index="4" unique_id=1905822120]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
@@ -33,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24975586, 0)
 size = Vector3(5, 0.5004883, 5)
 
 [node name="Path" type="Node3D" parent="Geometry" index="1" unique_id=594240981]
+transform = Transform3D(1, 0, 0, 0, 3.7570183, 0, 0, 0, 1, 0, -0.013527393, 0)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Geometry/Path" index="0" unique_id=700034860]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, -0.494, 0)
@@ -63,3 +70,9 @@ size = Vector3(0.5, 1, 2.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.49415088, -0.9994507)
 material_override = ExtResource("2_y5gs5")
 size = Vector3(0.5, 1, 2.5)
+
+[node name="TestBasic" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="0" unique_id=1272181662 instance=ExtResource("4_4faxc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.49952656, 0, 0.9193337)
+
+[node name="TestBasic2" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="1" unique_id=957897235 instance=ExtResource("4_4faxc")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.896329, 0, -0.61036587)
