@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://chype6d87kgj5"]
+
+[ext_resource type="PackedScene" uid="uid://4ox5rgjwwro4" path="res://Scenes/Projectiles/projectile.tscn" id="1_1h0ir"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gnp1v"]
+height = 0.7937622
+radius = 0.099121094
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo0b1"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nba1p"]
+material = SubResource("StandardMaterial3D_uo0b1")
+bottom_radius = 0.2
+
+[node name="testbasic1" unique_id=1749587302 instance=ExtResource("1_1h0ir")]
+collision_layer = 2
+lifetime = 3.0
+speed = 5.0
+damage = 5.0
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=854516210]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.05573e-10, -0.011566162)
+shape = SubResource("CylinderShape3D_gnp1v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=269856651]
+transform = Transform3D(0.125, 0, 0, 0, -1.39876395e-08, 0.125, 0, -0.3199999, -5.4639235e-09, 0, 0, 0)
+mesh = SubResource("CylinderMesh_nba1p")

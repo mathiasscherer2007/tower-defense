@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dsd6jkwa7ae8g"]
 
 [ext_resource type="PackedScene" uid="uid://c1ljijd1c6d02" path="res://Scenes/Towers/tower.tscn" id="1_lcgip"]
+[ext_resource type="PackedScene" uid="uid://chype6d87kgj5" path="res://Scenes/Projectiles/test/testbasic_1.tscn" id="2_hoax2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcgip"]
 albedo_color = Color(0, 0, 0, 1)
@@ -15,6 +16,7 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_qrwid")
 
 [node name="TestBasic" unique_id=1272181662 instance=ExtResource("1_lcgip")]
+projectile = ExtResource("2_hoax2")
 max_range = 10.0
 
 [node name="Range" parent="." index="0" unique_id=712720790]
@@ -23,10 +25,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Firerate" parent="." index="1" unique_id=2144439341]
 wait_time = 0.5
 
-[node name="MeshInstance3D" parent="." index="2" unique_id=967792431]
+[node name="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(879682507) index="0" unique_id=967792431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_hoax2")
 
-[node name="Front" type="MeshInstance3D" parent="." index="3" unique_id=1888794908]
+[node name="Front" type="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(879682507) index="1" unique_id=1888794908]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.5449944, -0.20572478)
 mesh = SubResource("TorusMesh_f2rtd")
+
+[node name="ProjectileSpawnPoint" parent="Mesh" parent_id_path=PackedInt32Array(879682507) index="2" unique_id=925385596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5540224, -0.49858212)
+
+[node name="Projectiles" parent="." index="3" unique_id=27528614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.544, 0)

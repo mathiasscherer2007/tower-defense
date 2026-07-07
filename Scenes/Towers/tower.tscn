@@ -15,12 +15,16 @@ collision_layer = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Range" unique_id=1003464765]
 shape = SubResource("CylinderShape3D_d6h38")
 
-[node name="Firerate" type="Timer" parent="." unique_id=2144439341]
+[node name="Cooldown" type="Timer" parent="." unique_id=2144439341]
 one_shot = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=967792431]
+[node name="Mesh" type="Node3D" parent="." unique_id=879682507]
 
-[node name="Bullets" type="Node3D" parent="." unique_id=27528614]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=967792431]
+
+[node name="ProjectileSpawnPoint" type="Node3D" parent="Mesh" unique_id=925385596]
+
+[node name="Projectiles" type="Node3D" parent="." unique_id=27528614]
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]
