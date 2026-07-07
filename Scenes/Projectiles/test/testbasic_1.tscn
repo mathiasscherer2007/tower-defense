@@ -16,7 +16,7 @@ bottom_radius = 0.2
 [node name="testbasic1" unique_id=1749587302 instance=ExtResource("1_1h0ir")]
 collision_layer = 2
 lifetime = 3.0
-speed = 5.0
+speed = 7.5
 damage = 5.0
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=854516210]

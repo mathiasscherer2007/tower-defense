@@ -25,9 +25,11 @@ func shoot(enemy: Area3D) -> void:
 	if cooldown.is_stopped():
 		var enemy_pos: Vector3 = enemy.global_position
 		mesh.look_at(Vector3(enemy_pos.x, self.global_position.y, enemy_pos.z))
+		
 		var projectile_instance = projectile.instantiate()
 		projectile_instance.setup(enemy_pos, projectile_spawn)
 		projectile_container.add_child(projectile_instance)
+		
 		cooldown.start()
 
 func _on_range_area_entered(area: Area3D) -> void:

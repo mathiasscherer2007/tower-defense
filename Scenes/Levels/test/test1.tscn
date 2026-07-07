@@ -12,6 +12,9 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4faxc"]
+size = Vector3(5, 1, 5)
+
 [node name="test1" unique_id=2011401683 instance=ExtResource("1_7joup")]
 script = ExtResource("2_u46i1")
 enemy_scale = Vector3(0.3, 0.3, 0.3)
@@ -36,6 +39,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry" index="0" unique_id=1576872223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24975586, 0)
+use_collision = true
+collision_layer = 8
+collision_mask = 15
 size = Vector3(5, 0.5004883, 5)
 
 [node name="Path" type="Node3D" parent="Geometry" index="1" unique_id=594240981]
@@ -70,6 +76,14 @@ size = Vector3(0.5, 1, 2.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.49415088, -0.9994507)
 material_override = ExtResource("2_y5gs5")
 size = Vector3(0.5, 1, 2.5)
+
+[node name="Area3D" type="Area3D" parent="Geometry" index="2" unique_id=389361585]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Area3D" index="0" unique_id=883038181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4932096, 0)
+shape = SubResource("BoxShape3D_4faxc")
 
 [node name="TestBasic" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="0" unique_id=1272181662 instance=ExtResource("4_4faxc")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.49952656, 0, 0.9193337)

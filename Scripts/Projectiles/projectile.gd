@@ -1,12 +1,12 @@
 class_name Projectile extends Area3D
 
-@export var target: Vector3
-@export var spawn_point: Node3D
 @export var lifetime: float
 @export var speed: float
 @export var damage: float
 
 var direction: Vector3
+var target: Vector3
+var spawn_point: Node3D
 
 @onready var timer = $Timer
 
@@ -26,3 +26,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+func _on_area_entered(area: Area3D) -> void:
+	# Delete projectile on contact with geometry
+	print(area.collision_layer)
+	if area.collision_layer == 8:
+		queue_free()
