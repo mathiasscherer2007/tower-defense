@@ -5,17 +5,17 @@ class_name Projectile extends Area3D
 @export var damage: float
 
 var direction: Vector3
+var spawn_point: Vector3
 var target: Vector3
-var spawn_point: Node3D
 
 @onready var timer = $Timer
 
-func setup(n_target: Vector3, n_spawner: Node3D) -> void:
+func setup(n_target: Vector3, n_spawner: Vector3) -> void:
 	target = n_target
 	spawn_point = n_spawner
 
 func _ready() -> void:
-	self.global_transform = spawn_point.global_transform
+	self.global_position = spawn_point
 	look_at(target)
 	timer.wait_time = lifetime
 	timer.start()
@@ -27,8 +27,9 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	queue_free()
 
+# TODO: Not everything disappears when touching geometry.
+#       This could probably be a component.
 func _on_area_entered(area: Area3D) -> void:
 	# Delete projectile on contact with geometry
-	print(area.collision_layer)
 	if area.collision_layer == 8:
 		queue_free()

@@ -4,16 +4,18 @@ class_name Tower extends Node3D
 
 @export var max_range: float
 @export var projectile: PackedScene
+@export var projectile_spawn_point: Node3D
 
 var enemies: Array
+var projectile_spawn_position: Vector3
 
 @onready var range_area = $Range/CollisionShape3D
 @onready var cooldown = $Cooldown
-@onready var projectile_spawn = $Mesh/ProjectileSpawnPoint
 @onready var projectile_container = $Projectiles
 @onready var mesh = $Mesh
 
 func _ready() -> void:
+	projectile_spawn_position = projectile_spawn_point.global_position
 	if range_area.shape is CylinderShape3D:
 		range_area.shape.radius = max_range
 
@@ -27,7 +29,7 @@ func shoot(enemy: Area3D) -> void:
 		mesh.look_at(Vector3(enemy_pos.x, self.global_position.y, enemy_pos.z))
 		
 		var projectile_instance = projectile.instantiate()
-		projectile_instance.setup(enemy_pos, projectile_spawn)
+		projectile_instance.setup(enemy_pos, projectile_spawn_point.global_position)
 		projectile_container.add_child(projectile_instance)
 		
 		cooldown.start()
