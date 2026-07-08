@@ -16,18 +16,18 @@ func setup(n_target: Vector3, n_spawner: Vector3) -> void:
 
 func _ready() -> void:
 	self.global_position = spawn_point
-	look_at(target)
+	self.look_at(target)
 	timer.wait_time = lifetime
 	timer.start()
 	direction = (target - self.global_position).normalized()
 
 func _physics_process(delta: float) -> void:
-	global_position += direction * speed * delta
+	self.global_position += direction * speed * delta
 
 func _on_timer_timeout() -> void:
 	queue_free()
 
-# TODO: Not everything disappears when touching geometry.
+# TODO: Not everything disappears when touching geometry (I.E. grenades).
 #       This could probably be a component.
 func _on_area_entered(area: Area3D) -> void:
 	# Delete projectile on contact with geometry

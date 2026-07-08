@@ -9,6 +9,14 @@ radius = 0.001
 [node name="Tower" type="Node3D" unique_id=1272181662]
 script = ExtResource("1_nh6md")
 
+[node name="Mesh" type="Node3D" parent="." unique_id=879682507]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=967792431]
+
+[node name="ProjectileSpawnPoint" type="Node3D" parent="Mesh" unique_id=925385596]
+
+[node name="Projectiles" type="Node3D" parent="." unique_id=27528614]
+
 [node name="Range" type="Area3D" parent="." unique_id=712720790]
 collision_layer = 4
 
@@ -17,14 +25,6 @@ shape = SubResource("CylinderShape3D_d6h38")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=2144439341]
 one_shot = true
-
-[node name="Mesh" type="Node3D" parent="." unique_id=879682507]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=967792431]
-
-[node name="ProjectileSpawnPoint" type="Node3D" parent="Mesh" unique_id=925385596]
-
-[node name="Projectiles" type="Node3D" parent="." unique_id=27528614]
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

@@ -2,10 +2,11 @@ class_name Enemy extends Node3D
 
 @export var health: float
 @export var speed: float
+
 var path_follow: PathFollow3D
 
-func setup(new_path_follow: PathFollow3D):
-	path_follow = new_path_follow
+func setup(n_path_follow: PathFollow3D):
+	path_follow = n_path_follow
 
 func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
