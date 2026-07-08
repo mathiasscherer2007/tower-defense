@@ -8,8 +8,8 @@ func _ready() -> void:
 	super()
 	var enemy_path = PathFollow3D.new()
 	var enemy: Enemy = enemy_scene.instantiate()
-	enemy.scale = enemy_scale
-	enemy.speed *= enemy_speed_scale
+	enemy.scale = entity_scale
+	enemy.speed = speed_scale
 	enemy.setup(enemy_path)
 	enemy_path.add_child(enemy)
 	path.add_child(enemy_path)

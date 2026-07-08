@@ -23,6 +23,5 @@ func _process(_delta: float) -> void:
 	if health <= 0:
 		queue_free()
 
-func _on_collision_area_entered(_area: Area3D) -> void:
-	# TODO: when bullets are implemented, reduce health based on bullet's damage
-	pass
+func _on_collision_take_damage(damage: float) -> void:
+	health -= damage

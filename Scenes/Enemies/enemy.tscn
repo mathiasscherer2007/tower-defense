@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://emwiu7nowaah"]
 
 [ext_resource type="Script" uid="uid://d4n4rsgtwi3gd" path="res://Scripts/Enemies/enemy.gd" id="1_613su"]
+[ext_resource type="Script" uid="uid://djdvrqo3hgj68" path="res://Scripts/Enemies/collision_handler.gd" id="2_jcvw6"]
 
 [node name="Enemy" type="Node3D" unique_id=1256829774]
 script = ExtResource("1_613su")
+health = 20.0
+speed = 20.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=691784335]
 
 [node name="Collision" type="Area3D" parent="." unique_id=266572519]
 collision_mask = 2
+script = ExtResource("2_jcvw6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" unique_id=139847431]
 
-[connection signal="area_entered" from="Collision" to="." method="_on_collision_area_entered"]
+[connection signal="take_damage" from="Collision" to="." method="_on_collision_take_damage"]

@@ -17,8 +17,7 @@ size = Vector3(5, 1, 5)
 
 [node name="test1" unique_id=2011401683 instance=ExtResource("1_7joup")]
 script = ExtResource("2_u46i1")
-enemy_scale = Vector3(0.3, 0.3, 0.3)
-enemy_speed_scale = 0.3
+entity_scale = Vector3(0.3, 0.3, 0.3)
 
 [node name="Sun" parent="." index="1" unique_id=124783030]
 transform = Transform3D(-0.9214976, 0.33635062, -0.19419211, 2.7805946e-08, 0.49999994, 0.86602545, 0.38838425, 0.7980403, -0.46074873, 0, 0, 0)
@@ -28,7 +27,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 curve = SubResource("Curve3D_7joup")
 
 [node name="Camera3D" parent="." index="3" unique_id=1009776428]
-transform = Transform3D(0.8660254, 0.25, -0.4330127, 0, 0.8660254, 0.5, 0.5, -0.4330127, 0.75, -1.515, 2.195, 2.67)
+transform = Transform3D(0.8660254, 0.25, -0.4330127, 0, 0.8660254, 0.5, 0.5, -0.4330127, 0.75, -1.9877051, 2.0299482, 3.4184408)
 projection = 1
 size = 4.0
 near = 0.001
@@ -39,9 +38,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry" index="0" unique_id=1576872223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24975586, 0)
-use_collision = true
 collision_layer = 8
-collision_mask = 15
+collision_mask = 0
 size = Vector3(5, 0.5004883, 5)
 
 [node name="Path" type="Node3D" parent="Geometry" index="1" unique_id=594240981]
@@ -86,7 +84,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4932096, 0)
 shape = SubResource("BoxShape3D_4faxc")
 
 [node name="TestBasic" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="0" unique_id=1272181662 instance=ExtResource("4_4faxc")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.49952656, 0, 0.9193337)
+transform = Transform3D(-0.2598076, 0, 0.15, 0, 0.29999998, 0, -0.15, 0, -0.2598076, -0.49952656, 0, 0.9193337)
 
 [node name="TestBasic2" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="1" unique_id=957897235 instance=ExtResource("4_4faxc")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.896329, 0, -0.61036587)
+transform = Transform3D(-0.2598076, 0, 0.15, 0, 0.29999998, 0, -0.15, 0, -0.2598076, 0.896329, 0, -0.61036587)

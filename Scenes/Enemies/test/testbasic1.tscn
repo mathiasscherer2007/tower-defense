@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cr5vuo0jc2tjq"]
 
 [ext_resource type="PackedScene" uid="uid://emwiu7nowaah" path="res://Scenes/Enemies/enemy.tscn" id="1_duvtb"]
+[ext_resource type="Script" uid="uid://djdvrqo3hgj68" path="res://Scripts/Enemies/collision_handler.gd" id="2_h1gco"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h1gco"]
 
@@ -12,10 +13,9 @@ material = SubResource("StandardMaterial3D_aloet")
 top_radius = 0.25
 height = 1.0
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lrsoy"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_duvtb"]
 
 [node name="Enemy" unique_id=1256829774 instance=ExtResource("1_duvtb")]
-health = 25
 speed = 3.0
 
 [node name="MeshInstance3D" parent="." index="0" unique_id=691784335]
@@ -28,6 +28,7 @@ mesh = SubResource("CylinderMesh_n0t5r")
 
 [node name="Collision" parent="." index="2" unique_id=266572519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_h1gco")
 
 [node name="CollisionShape3D" parent="Collision" index="0" unique_id=139847431]
-shape = SubResource("CapsuleShape3D_lrsoy")
+shape = SubResource("CapsuleShape3D_duvtb")

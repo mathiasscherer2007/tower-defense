@@ -1,7 +1,7 @@
 class_name Level extends Node3D
 
-@export var enemy_scale: Vector3
-@export var enemy_speed_scale: float
+@export var entity_scale: Vector3 = Vector3(1, 1, 1)
+@export var speed_scale: float = 1
 @export var waves: Dictionary
 """
     {
