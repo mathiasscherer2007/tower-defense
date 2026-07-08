@@ -1,10 +1,11 @@
 extends Level
 
 var enemy_scene = preload("res://Scenes/Enemies/test/testbasic1.tscn")
-@onready var path = $Path3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# temporary, calls superclass _ready function
+	super()
 	var enemy_path = PathFollow3D.new()
 	var enemy: Enemy = enemy_scene.instantiate()
 	enemy.scale = enemy_scale

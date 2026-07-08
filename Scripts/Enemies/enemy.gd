@@ -1,7 +1,11 @@
 class_name Enemy extends Node3D
 
+signal reached_end(data)
+
 @export var health: float
 @export var speed: float
+## Amount of lives this enemy takes upon reaching the end of the path
+@export var weight: int = 1
 
 var path_follow: PathFollow3D
 
@@ -10,8 +14,8 @@ func setup(n_path_follow: PathFollow3D):
 
 func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
-	# TODO: make elaborate signal for enemy reaching path end
 	if path_follow.progress_ratio >= 0.99:
+		reached_end.emit({ "lives": weight })
 		queue_free()
 
 func _process(_delta: float) -> void:

@@ -16,7 +16,10 @@ class_name Level extends Node3D
     on wave start, creates a bunch of timers that send a signal to spawn their enemies
 """
 
+@onready var path = $Path3D
+@onready var player = $Player
+
 # var test_enemy = preload("");
 
 func _ready() -> void:
-	print("level loaded!")
+	path.enemy_exit.connect(player._on_enemy_exit)
