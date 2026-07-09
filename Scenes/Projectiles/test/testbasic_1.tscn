@@ -14,15 +14,14 @@ material = SubResource("StandardMaterial3D_uo0b1")
 bottom_radius = 0.2
 
 [node name="testbasic1" unique_id=1749587302 instance=ExtResource("1_1h0ir")]
-collision_layer = 2
-lifetime = 3.0
+lifetime = 1.0
 speed = 7.5
 damage = 5.0
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=854516210]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -5.05573e-10, -0.011566162)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_gnp1v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=269856651]
-transform = Transform3D(0.125, 0, 0, 0, -1.39876395e-08, 0.125, 0, -0.3199999, -5.4639235e-09, 0, 0, 0)
+transform = Transform3D(0.09375, 0, 0, 0, -1.021714e-08, 0.09375, 0, -0.23374093, -4.0979424e-09, 0, 0, 0)
 mesh = SubResource("CylinderMesh_nba1p")

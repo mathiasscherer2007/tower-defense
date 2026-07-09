@@ -15,16 +15,9 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="TorusMesh" id="TorusMesh_f2rtd"]
 material = SubResource("StandardMaterial3D_qrwid")
 
-[node name="TestBasic" unique_id=1272181662 node_paths=PackedStringArray("projectile_spawn_point") instance=ExtResource("1_lcgip")]
+[node name="TestBasic" unique_id=1272181662 instance=ExtResource("1_lcgip")]
 max_range = 10.0
 projectile = ExtResource("2_hoax2")
-projectile_spawn_point = NodePath("Mesh/ProjectileSpawnPoint")
-
-[node name="Range" parent="." index="0" unique_id=712720790]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="Cooldown" parent="." index="1" unique_id=2144439341]
-wait_time = 0.5
 
 [node name="MeshInstance3D" parent="Mesh" parent_id_path=PackedInt32Array(879682507) index="0" unique_id=967792431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -35,7 +28,13 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 1.5449944, -0.205724
 mesh = SubResource("TorusMesh_f2rtd")
 
 [node name="ProjectileSpawnPoint" parent="Mesh" parent_id_path=PackedInt32Array(879682507) index="2" unique_id=925385596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5540224, -0.49858212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5)
 
-[node name="Projectiles" parent="." index="3" unique_id=27528614]
+[node name="Projectiles" parent="." index="1" unique_id=27528614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.544, 0)
+
+[node name="Range" parent="." index="2" unique_id=712720790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Cooldown" parent="." index="3" unique_id=2144439341]
+wait_time = 0.5

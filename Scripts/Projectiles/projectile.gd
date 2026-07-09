@@ -9,7 +9,6 @@ var direction: Vector3
 var spawn_point: Vector3
 var target: Vector3
 
-@onready var timer = $Timer
 
 func setup(n_target: Vector3, n_spawner: Vector3) -> void:
 	target = n_target
@@ -18,8 +17,10 @@ func setup(n_target: Vector3, n_spawner: Vector3) -> void:
 func _ready() -> void:
 	self.global_position = spawn_point
 	self.look_at(target)
-	timer.wait_time = lifetime
-	timer.start()
+	
+	var lifetime_timer = get_tree().create_timer(lifetime)
+	lifetime_timer.connect("timeout", _on_lifetime_timeout)
+	
 	direction = (target - self.global_position).normalized()
 
 func _physics_process(delta: float) -> void:
@@ -27,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 	self.global_position += direction * speed * delta
 
-func _on_timer_timeout() -> void:
+func _on_lifetime_timeout() -> void:
 	queue_free()
 
 # TODO: Not everything disappears when touching geometry (I.E. grenades).
