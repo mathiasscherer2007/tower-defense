@@ -5,4 +5,3 @@ extends Node3D
 
 func _on_enemy_exit(data: Dictionary) -> void:
 	lives -= data.lives
-	print(lives)

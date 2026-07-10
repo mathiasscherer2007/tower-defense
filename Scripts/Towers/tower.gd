@@ -5,7 +5,15 @@ class_name Tower extends Node3D
 ## Radius of the range area in meters
 @export var max_range: float
 ## Projectile shot by the tower
+@export_group("Projectile Properties")
 @export var projectile: PackedScene
+@export var damage: float = 1
+## How many enemies this tower's projectile pierces before disappearing
+@export var pierce: int = 1
+## How fast this tower's projectile goes
+@export var projectile_speed: float = 10
+## Tower's projectile lifetime in seconds
+@export var projectile_lifetime: float = 1
 
 var enemies: Array
 
@@ -29,7 +37,7 @@ func shoot(enemy: Area3D) -> void:
 		var projectile_instance = projectile.instantiate()
 		var projectile_spawn_position = projectile_spawn_point.global_position
 		
-		projectile_instance.setup(enemy_pos, projectile_spawn_position)
+		projectile_instance.setup(enemy_pos, projectile_spawn_position, damage, projectile_speed, pierce, projectile_lifetime)
 		projectile_container.add_child(projectile_instance)
 		
 		mesh.look_at(Vector3(enemy_pos.x, self.global_position.y, enemy_pos.z))
