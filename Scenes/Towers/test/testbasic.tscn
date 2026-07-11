@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsd6jkwa7ae8g"]
 
 [ext_resource type="PackedScene" uid="uid://c1ljijd1c6d02" path="res://Scenes/Towers/tower.tscn" id="1_lcgip"]
-[ext_resource type="PackedScene" uid="uid://chype6d87kgj5" path="res://Scenes/Projectiles/test/testbasic_1.tscn" id="2_hoax2"]
+[ext_resource type="PackedScene" uid="uid://chype6d87kgj5" path="res://Scenes/Shootables/Projectiles/test/testbasic_1.tscn" id="2_hoax2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcgip"]
 albedo_color = Color(0, 0, 0, 1)

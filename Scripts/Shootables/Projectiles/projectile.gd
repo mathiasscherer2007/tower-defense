@@ -1,4 +1,4 @@
-class_name Projectile extends Area3D
+class_name Projectile extends Shootable
 
 var damage: float
 var speed: float
@@ -10,21 +10,14 @@ var spawn_point: Vector3
 var target: Vector3
 
 
-func setup(
-	n_target: Vector3,
-	n_spawner: Vector3,
-	n_damage: float,
-	n_speed: float,
-	n_pierce: int,
-	n_lifetime: float
-) -> void:
-	self.target = n_target
-	self.spawn_point = n_spawner
+func setup(args: Dictionary) -> void:
+	self.target = args["target"]
+	self.spawn_point = args["spawn_point"]
 
-	self.damage = n_damage
-	self.speed = n_speed
-	self.pierce = n_pierce
-	self.lifetime = n_lifetime
+	self.damage = args["damage"]
+	self.speed = args["speed"]
+	self.pierce = args["pierce"]
+	self.lifetime = args["lifetime"]
 
 
 func _ready() -> void:

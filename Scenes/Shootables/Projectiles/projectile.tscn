@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://4ox5rgjwwro4"]
 
-[ext_resource type="Script" uid="uid://bmmf7wq1t2n10" path="res://Scripts/Projectiles/projectile.gd" id="1_2re41"]
+[ext_resource type="Script" uid="uid://bmmf7wq1t2n10" path="res://Scripts/Shootables/Projectiles/projectile.gd" id="1_x1yib"]
 
 [node name="Projectile" type="Area3D" unique_id=1749587302]
 collision_layer = 2
 collision_mask = 9
-script = ExtResource("1_2re41")
+script = ExtResource("1_x1yib")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=854516210]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chype6d87kgj5"]
 
-[ext_resource type="PackedScene" uid="uid://4ox5rgjwwro4" path="res://Scenes/Projectiles/projectile.tscn" id="1_1h0ir"]
+[ext_resource type="PackedScene" uid="uid://4ox5rgjwwro4" path="res://Scenes/Shootables/Projectiles/projectile.tscn" id="1_1h0ir"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gnp1v"]
 height = 0.7937622
