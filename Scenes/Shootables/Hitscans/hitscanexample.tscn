@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://doxxqrafmcolf"]
+
+[ext_resource type="Script" uid="uid://cb3gme1h6ojxs" path="res://Scripts/Shootables/Hitscans/hitscan.gd" id="1_lmdfk"]
+
+[node name="Hitscanexample" type="Node3D" unique_id=1179924121]
+script = ExtResource("1_lmdfk")

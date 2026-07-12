@@ -85,6 +85,4 @@ shape = SubResource("BoxShape3D_4faxc")
 
 [node name="TestBasic" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="0" unique_id=1272181662 instance=ExtResource("4_4faxc")]
 transform = Transform3D(-0.2598076, 0, 0.15, 0, 0.29999998, 0, -0.15, 0, -0.2598076, -0.49952656, 0, 0.9193337)
-
-[node name="TestBasic2" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="1" unique_id=957897235 instance=ExtResource("4_4faxc")]
-transform = Transform3D(-0.2598076, 0, 0.15, 0, 0.29999998, 0, -0.15, 0, -0.2598076, 0.896329, 0, -0.61036587)
+damage = 5.0

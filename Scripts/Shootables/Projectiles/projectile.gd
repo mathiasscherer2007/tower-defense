@@ -2,7 +2,7 @@ class_name Projectile extends Shootable
 
 var damage: float
 var speed: float
-var pierce: int = 1
+var pierce: float = 1.0
 var lifetime: float = 1.0
 
 var direction: Vector3
@@ -31,8 +31,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if pierce == 0:
+	if floor(pierce) == 0:
 		queue_free()
+	
 	self.global_position += direction * speed * delta
 
 
@@ -47,5 +48,5 @@ func _on_area_entered(area: Area3D) -> void:
 		area.emit_signal("take_damage", damage)
 		pierce -= 1
 	# Delete projectile on contact with geometry
-	if area.collision_layer == 8:
+	elif area.collision_layer == 8:
 		queue_free()
