@@ -12,12 +12,16 @@ class_name Tower extends Node3D
 @export var cooldown: float
 @export var projectile_speed: float = 20
 @export var projectile_lifetime: float = 1
+@export_group("Mesh Properties")
+## Meshes that look at target in all axis
+@export var look_meshes: Array[Node3D]
+## Meshes that look at target but don't rotate on the Y axis
+@export var rotate_meshes: Array[Node3D]
 
 var projectile_args: Dictionary
 var can_shoot: bool = true
 var enemies: Array
 
-@onready var mesh = $Mesh
 @onready var range_area = $Range/CollisionShape3D
 @onready var projectile_container = $Projectiles
 @onready var projectile_spawn_point = find_child('ProjectileSpawnPoint')
@@ -48,14 +52,17 @@ func shoot(enemy: Area3D) -> void:
 		
 		var enemy_pos: Vector3 = enemy.global_position
 		
+		for node in look_meshes:
+			node.look_at(enemy_pos)
+		for node in rotate_meshes:
+			node.look_at(Vector3(enemy_pos.x, self.global_position.y, enemy_pos.z))
+		
 		var projectile_instance = projectile.instantiate()
 		projectile_args["target"] = enemy_pos
 		projectile_args["spawn_point"] = projectile_spawn_point.global_position
 		
 		projectile_instance.setup(projectile_args)
 		projectile_container.add_child(projectile_instance)
-		
-		mesh.look_at(Vector3(enemy_pos.x, self.global_position.y, enemy_pos.z))
 		
 		var timer = get_tree().create_timer(self.cooldown)
 		timer.connect("timeout", _on_cooldown_timeout)

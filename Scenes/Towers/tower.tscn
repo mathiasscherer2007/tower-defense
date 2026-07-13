@@ -11,10 +11,6 @@ script = ExtResource("1_nh6md")
 
 [node name="Mesh" type="Node3D" parent="." unique_id=879682507]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh" unique_id=967792431]
-
-[node name="ProjectileSpawnPoint" type="Node3D" parent="Mesh" unique_id=925385596]
-
 [node name="Projectiles" type="Node3D" parent="." unique_id=27528614]
 
 [node name="Range" type="Area3D" parent="." unique_id=712720790]

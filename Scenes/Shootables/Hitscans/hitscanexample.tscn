@@ -2,5 +2,54 @@
 
 [ext_resource type="Script" uid="uid://cb3gme1h6ojxs" path="res://Scripts/Shootables/Hitscans/hitscan.gd" id="1_lmdfk"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmdfk"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_lmdfk"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xafbb"]
+gradient = SubResource("Gradient_lmdfk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xafbb"]
+lifetime_randomness = 1.0
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 1, 0.5)
+angle_min = -4.9999895
+angle_max = 5.000011
+direction = Vector3(0, 0, -1)
+spread = 30.0
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 1.1
+color_ramp = SubResource("GradientTexture1D_xafbb")
+turbulence_noise_strength = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_qm3uc"]
+radius = 0.038
+height = 0.075
+radial_segments = 4
+rings = 1
+
 [node name="Hitscanexample" type="Node3D" unique_id=1179924121]
 script = ExtResource("1_lmdfk")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1148810744]
+material_override = SubResource("StandardMaterial3D_lmdfk")
+emitting = false
+amount = 15
+lifetime = 0.35000000000000003
+interp_to_end = 0.05
+one_shot = true
+preprocess = 0.02
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xafbb")
+draw_pass_1 = SubResource("SphereMesh_qm3uc")

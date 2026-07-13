@@ -1,11 +1,16 @@
 extends Shootable
 
+# TODO: Make tracer effects.
+# TODO: Make impact effects.
+
 var damage: float
 var pierce: float
 
 var direction: Vector3
 var spawn_point: Vector3
 var target: Vector3
+
+@onready var particles: GPUParticles3D = $GPUParticles3D
 
 
 func setup(args: Dictionary) -> void:
@@ -18,6 +23,9 @@ func setup(args: Dictionary) -> void:
 
 func _ready() -> void:
 	direction = (target - spawn_point).normalized()
+	self.global_position = spawn_point
+	particles.emitting = true
+	look_at(target)
 
 
 func _physics_process(_delta: float) -> void:
@@ -39,8 +47,8 @@ func _physics_process(_delta: float) -> void:
 		if result:
 			var collider = result.get("collider")
 			if collider.collision_layer == 8:
-				break
 				queue_free()
+				break
 			if collider.collision_layer == 1:
 				collider.emit_signal("take_damage", self.damage)
 				pierce -= 1
