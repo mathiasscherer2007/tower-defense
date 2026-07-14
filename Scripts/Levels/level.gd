@@ -1,5 +1,9 @@
 class_name Level extends Node3D
 
+# TODO: Create enemyspawn and base areas
+# Enemyspawn: Area where enemies are instantiated. Their hitbox only activates after leaving this area.
+# Base: area that triggers player damage when an enemy enters it.
+
 @export var entity_scale: Vector3 = Vector3(1, 1, 1)
 @export var speed_scale: float = 1
 @export var waves: Dictionary
