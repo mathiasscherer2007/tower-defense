@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b4otkkg0v2n1g" path="res://Scenes/Levels/level.tscn" id="1_7joup"]
 [ext_resource type="PackedScene" uid="uid://dsd6jkwa7ae8g" path="res://Scenes/Towers/test/testbasic.tscn" id="2_y5gs5"]
+[ext_resource type="Material" uid="uid://cn6sc210jlp0i" path="res://Scenes/Levels/test/path_material.tres" id="3_u46i1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7joup"]
 sky_top_color = Color(0.50980395, 0.79607844, 0.8980392, 1)
@@ -26,6 +27,7 @@ _data = {
 point_count = 5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2qse"]
+albedo_color = Color(0.3328807, 0.33288068, 0.33288068, 1)
 
 [node name="Level" unique_id=2011401683 instance=ExtResource("1_7joup")]
 
@@ -63,15 +65,19 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Path" index="0" unique_id=1482054756]
 transform = Transform3D(0.906906, 0, -0.42133325, 0, 1, 0, 0.42133325, 0, 0.906906, 7.694109, -0.4499492, -6.1646166)
 size = Vector3(1, 1, 14.483948)
+material = ExtResource("3_u46i1")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Geometry/Path" index="1" unique_id=2105063128]
 transform = Transform3D(0.89664555, 0, 0.4427494, 0, 1, 0, -0.4427494, 0, 0.89664555, -3.032627, -0.4499492, 8.28976)
+material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 10.315811)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Geometry/Path" index="2" unique_id=136557235]
 transform = Transform3D(0.57713914, 0, -0.81664604, 0, 1, 0, 0.81664604, 0, 0.57713914, -2.6826327, -0.4499492, 2.0026467)
+material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 7.310154)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Geometry/Path" index="3" unique_id=259929908]
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 2.5851102, -0.4499492, -0.011767387)
+material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 5.139489)
