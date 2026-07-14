@@ -7,10 +7,15 @@ signal reached_end(data)
 ## Amount of lives this enemy takes upon reaching the end of the path
 @export var weight: int = 1
 
+@onready var health_number = $Health
+
 var path_follow: PathFollow3D
 
 func setup(n_path_follow: PathFollow3D):
 	path_follow = n_path_follow
+
+func _ready() -> void:
+	health_number.text = str(int(ceil(health)))
 
 func _physics_process(delta: float) -> void:
 	path_follow.progress += speed * delta
@@ -25,3 +30,4 @@ func _process(_delta: float) -> void:
 
 func _on_collision_take_damage(damage: float) -> void:
 	health -= damage
+	health_number.text = str(int(ceil(health)))

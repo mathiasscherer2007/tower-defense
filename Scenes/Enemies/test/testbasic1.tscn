@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cr5vuo0jc2tjq"]
 
 [ext_resource type="PackedScene" uid="uid://emwiu7nowaah" path="res://Scenes/Enemies/enemy.tscn" id="1_duvtb"]
-[ext_resource type="Script" uid="uid://djdvrqo3hgj68" path="res://Scripts/Enemies/collision_handler.gd" id="2_h1gco"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_h1gco"]
 
@@ -28,7 +27,11 @@ mesh = SubResource("CylinderMesh_n0t5r")
 
 [node name="Collision" parent="." index="2" unique_id=266572519]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("2_h1gco")
 
 [node name="CollisionShape3D" parent="Collision" index="0" unique_id=139847431]
 shape = SubResource("CapsuleShape3D_duvtb")
+
+[node name="Health" type="Label3D" parent="." index="3" unique_id=1702901062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3623893, 0)
+billboard = 1
+font_size = 44
