@@ -37,13 +37,17 @@ var wave_counter = 0:
 		wave_counter = value
 
 var wave_start_timers: Array
+var camera_shake_noise: FastNoiseLite = FastNoiseLite.new()
 
 @onready var path = $Path3D
 @onready var player = $Player
+@onready var camera = $Camera3D
 
 
 func _ready() -> void:
 	path.enemy_exit.connect(player._on_enemy_exit)
+	path.enemy_exit.connect(on_enemy_exit)
+
 	load_wave()
 
 
@@ -54,11 +58,13 @@ func load_wave() -> void:
 		start_timer.timeout.connect(callable)
 		wave_start_timers.append(start_timer)
 
+
 func load_subwave(delay_enemies, amount, enemy) -> void:
 	for i in range(amount):
 		spawn_enemy(enemy)
 		if i < amount - 1:
 			await get_tree().create_timer(delay_enemies/1000,0).timeout
+
 
 func spawn_enemy(enemy: PackedScene) -> void:
 	var path_follow = PathFollow3D.new()
@@ -66,4 +72,14 @@ func spawn_enemy(enemy: PackedScene) -> void:
 	enemy_instance.setup(path_follow)
 	path_follow.add_child(enemy_instance)
 	path.add_child(path_follow)
-	
+
+
+func on_enemy_exit(_data) -> void:
+	var camera_tween = get_tree().create_tween()
+	camera_tween.tween_method(shake_camera, 1.0, 0.0, 0.3)
+
+
+func shake_camera(intensity: float) -> void:
+	var camera_offset = camera_shake_noise.get_noise_1d(Time.get_ticks_msec()) * intensity * Globals.screen_shake_mult
+	camera.h_offset = camera_offset/5
+	camera.v_offset = camera_offset/5
