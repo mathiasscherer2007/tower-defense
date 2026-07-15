@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b4otkkg0v2n1g" path="res://Scenes/Levels/level.tscn" id="1_7joup"]
 [ext_resource type="PackedScene" uid="uid://dsd6jkwa7ae8g" path="res://Scenes/Towers/test/testbasic.tscn" id="2_y5gs5"]
 [ext_resource type="Material" uid="uid://cn6sc210jlp0i" path="res://Scenes/Levels/test/path_material.tres" id="3_u46i1"]
+[ext_resource type="Script" uid="uid://deofo65uidnb8" path="res://Scripts/Levels/wave_handler.gd" id="4_4faxc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7joup"]
 sky_top_color = Color(0.50980395, 0.79607844, 0.8980392, 1)
@@ -83,3 +84,6 @@ size = Vector3(1, 1, 7.310154)
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 2.5851102, -0.4499492, -0.011767387)
 material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 5.139489)
+
+[node name="WaveHandler" type="Node3D" parent="." index="7" unique_id=649463484]
+script = ExtResource("4_4faxc")
