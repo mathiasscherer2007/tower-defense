@@ -7,7 +7,7 @@
 [node name="Level" type="Node3D" unique_id=2011401683]
 script = ExtResource("1_f1n8c")
 
-[node name="Path3D" type="Path3D" parent="." unique_id=932929914]
+[node name="EnemyHandler" type="Path3D" parent="." unique_id=932929914]
 script = ExtResource("3_yjxcc")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1009776428]

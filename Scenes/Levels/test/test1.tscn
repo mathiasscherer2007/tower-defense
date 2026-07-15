@@ -39,7 +39,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=2044530278]
 environment = SubResource("Environment_u46i1")
 
-[node name="Path3D" parent="." index="2" unique_id=932929914]
+[node name="EnemyHandler" parent="." index="2" unique_id=932929914]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.05, 3)
 curve = SubResource("Curve3D_y5gs5")
 
@@ -50,7 +50,8 @@ near = 0.01
 far = 100.0
 
 [node name="TestBasic" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="0" unique_id=1272181662 instance=ExtResource("2_y5gs5")]
-transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.64278764, -1.4525834, 0, 5.719535)
+transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.64278764, 2.319121, 0, 3.0994253)
+damage = 10.0
 cooldown = 1.0
 
 [node name="Geometry" type="Node3D" parent="." index="6" unique_id=1567942913]

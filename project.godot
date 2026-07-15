@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tower defense"
-run/main_scene="uid://cyc4kcccx26jy"
+run/main_scene="uid://bac1083ft5j64"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

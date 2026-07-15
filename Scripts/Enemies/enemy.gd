@@ -1,6 +1,7 @@
 class_name Enemy extends Node3D
 
 signal reached_end(data)
+signal died(data)
 
 @export var health: float
 @export var speed: float
@@ -23,11 +24,11 @@ func _physics_process(delta: float) -> void:
 		reached_end.emit({ "lives": weight })
 		queue_free()
 
-func _process(_delta: float) -> void:
-	# TODO: make elaborate signal for enemy death
-	if health <= 0:
-		queue_free()
-
 func _on_collision_take_damage(damage: float) -> void:
 	health -= damage
+	
+	if health <= 0:
+		died.emit({})
+		queue_free()
+	
 	health_number.text = str(int(ceil(health)))
