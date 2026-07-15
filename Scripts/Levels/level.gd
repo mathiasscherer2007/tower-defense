@@ -5,6 +5,9 @@ class_name Level extends Node3D
 
 # TODO: Componentize wave manager
 
+signal wave_change(new_wave: int, total_waves: int)
+signal health_change(new_health: int)
+
 @export_group("Scale Settings")
 @export var entity_scale: Vector3 = Vector3(1, 1, 1)
 @export var speed_scale: float = 1
@@ -26,6 +29,7 @@ var wave_enemy_counter = 0
 
 var camera_shake_noise: FastNoiseLite = FastNoiseLite.new()
 var spawning: bool = false
+var total_waves: int
 
 @onready var enemy_handler = $EnemyHandler
 @onready var player = $Player
@@ -36,6 +40,12 @@ func _ready() -> void:
 	enemy_handler.enemy_exit.connect(player._on_enemy_exit)
 	enemy_handler.enemy_exit.connect(_on_enemy_exit)
 	enemy_handler.enemy_death.connect(_on_enemy_death)
+	
+	player.health_change.connect(_on_player_health_change)
+	
+	total_waves = len(waves)
+	
+	wave_change.emit(wave_counter+1, total_waves)
 	
 	load_wave()
 
@@ -83,7 +93,12 @@ func shake_camera(intensity: float) -> void:
 
 
 func check_wave_end() -> void:
-	if wave_enemy_counter == 0 && player.lives > 0:
+	if wave_enemy_counter == 0 && total_waves > wave_counter+1:
 		await get_tree().create_timer(5).timeout
 		wave_counter += 1
+		wave_change.emit(wave_counter+1, total_waves)
 		load_wave()
+
+
+func _on_player_health_change(new_health: int) -> void:
+	health_change.emit(new_health)
