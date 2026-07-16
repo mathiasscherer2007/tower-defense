@@ -37,22 +37,27 @@ func _physics_process(_delta: float) -> void:
 	while floor(pierce) > 0:
 		var query = PhysicsRayQueryParameters3D.create(
 			current_pos, 
-			current_end, 
-			0b00000000_00000000_00000000_00001001, 
-			exclusion_list
+			current_end
 		)
-		query.collide_with_areas = true
+		query.set_collide_with_areas(true)
+		query.set_collision_mask(0b00000000_00000000_00000000_00001001)
+		query.set_exclude(exclusion_list)
+		query.set_hit_back_faces(false)
 		
 		var result: Dictionary = space_state.intersect_ray(query)
 		if result:
 			var collider = result.get("collider")
 			if collider.collision_layer == 8:
-				queue_free()
 				break
-			if collider.collision_layer == 1:
+			elif collider.collision_layer == 1:
 				collider.emit_signal("take_damage", self.damage)
-				pierce -= 1
-			
-			exclusion_list.append(result.get("rid"))
-			current_pos = result.get("position")
-			pierce -= 1
+			else:
+				break
+			pierce -= 1.0
+			exclusion_list.append(collider.get_rid())
+			current_pos = result.get("position") + (direction * 0.01)
+			current_end = current_pos + (direction * 100)
+		else:
+			break
+	
+	queue_free()
