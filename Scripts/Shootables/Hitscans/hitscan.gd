@@ -3,14 +3,14 @@ extends Shootable
 # TODO: Make tracer effects.
 # TODO: Make impact effects.
 
+@export var muzzle_effect: PackedScene
+
 var damage: float
 var pierce: float
 
 var direction: Vector3
 var spawn_point: Vector3
 var target: Vector3
-
-@onready var particles: GPUParticles3D = $GPUParticles3D
 
 
 func setup(args: Dictionary) -> void:
@@ -24,8 +24,12 @@ func setup(args: Dictionary) -> void:
 func _ready() -> void:
 	direction = (target - spawn_point).normalized()
 	self.global_position = spawn_point
-	particles.emitting = true
 	look_at(target)
+	
+	var effect_instance = muzzle_effect.instantiate()
+	get_parent().add_child(effect_instance)
+	effect_instance.global_position = spawn_point
+	effect_instance.look_at(target)
 
 
 func _physics_process(_delta: float) -> void:
