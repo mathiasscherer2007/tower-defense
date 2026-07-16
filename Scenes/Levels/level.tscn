@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bxhabrdawn022" path="res://Scripts/Levels/level.gd" id="1_f1n8c"]
 [ext_resource type="Script" uid="uid://d12asrtuhipwj" path="res://Scripts/Player/player.gd" id="2_7x7pb"]
 [ext_resource type="Script" uid="uid://bcicqcj7lwhda" path="res://Scripts/Levels/enemy_handler.gd" id="3_yjxcc"]
+[ext_resource type="Script" uid="uid://deofo65uidnb8" path="res://Scripts/Levels/wave_handler.gd" id="4_lkqqh"]
 
 [node name="Level" type="Node3D" unique_id=2011401683]
 script = ExtResource("1_f1n8c")
@@ -18,3 +19,6 @@ fov = 54.0
 script = ExtResource("2_7x7pb")
 
 [node name="Towers" type="Node3D" parent="." unique_id=1765927691]
+
+[node name="WaveHandler" type="Node3D" parent="." unique_id=932217088]
+script = ExtResource("4_lkqqh")

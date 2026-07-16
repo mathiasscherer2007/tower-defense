@@ -5,7 +5,7 @@ extends Node3D
 
 
 func _ready() -> void:
-	ui.setup(level.player.lives, level.total_waves)
+	ui.setup(level.player.lives, level.wave_handler.get_total_waves())
 	
 	level.health_change.connect(ui._on_health_change)
 	level.wave_change.connect(ui._on_wave_change)

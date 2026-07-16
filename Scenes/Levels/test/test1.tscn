@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://b4otkkg0v2n1g" path="res://Scenes/Levels/level.tscn" id="1_7joup"]
 [ext_resource type="PackedScene" uid="uid://dsd6jkwa7ae8g" path="res://Scenes/Towers/test/testbasic.tscn" id="2_y5gs5"]
 [ext_resource type="Material" uid="uid://cn6sc210jlp0i" path="res://Scenes/Levels/test/path_material.tres" id="3_u46i1"]
-[ext_resource type="Script" uid="uid://deofo65uidnb8" path="res://Scripts/Levels/wave_handler.gd" id="4_4faxc"]
+[ext_resource type="Script" uid="uid://c7qvossit4a6q" path="res://Scripts/Types/wavedata.gd" id="4_4faxc"]
+[ext_resource type="Script" uid="uid://c2w3giqs0t26h" path="res://Scripts/Types/subwave.gd" id="5_7wf1s"]
+[ext_resource type="PackedScene" uid="uid://cr5vuo0jc2tjq" path="res://Scenes/Enemies/test/testbasic1.tscn" id="7_2ctv1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7joup"]
 sky_top_color = Color(0.50980395, 0.79607844, 0.8980392, 1)
@@ -30,6 +32,19 @@ point_count = 5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2qse"]
 albedo_color = Color(0.24840015, 0.24840018, 0.24840012, 1)
 
+[sub_resource type="Resource" id="Resource_7wf1s"]
+script = ExtResource("5_7wf1s")
+delay_wave = 500
+delay_enemies = 100
+amount = 5
+enemy = ExtResource("7_2ctv1")
+metadata/_custom_type_script = "uid://c2w3giqs0t26h"
+
+[sub_resource type="Resource" id="Resource_4faxc"]
+script = ExtResource("4_4faxc")
+sub_waves = Array[ExtResource("5_7wf1s")]([SubResource("Resource_7wf1s")])
+metadata/_custom_type_script = "uid://c7qvossit4a6q"
+
 [node name="Level" unique_id=2011401683 instance=ExtResource("1_7joup")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0" unique_id=1734798752]
@@ -53,6 +68,7 @@ far = 100.0
 [node name="TestBasic" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="0" unique_id=1272181662 instance=ExtResource("2_y5gs5")]
 transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.64278764, 2.319121, 0, 3.0994253)
 damage = 10.0
+pierce = 2
 cooldown = 1.0
 
 [node name="Geometry" type="Node3D" parent="." index="6" unique_id=1567942913]
@@ -85,5 +101,5 @@ transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4
 material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 5.139489)
 
-[node name="WaveHandler" type="Node3D" parent="." index="7" unique_id=649463484]
-script = ExtResource("4_4faxc")
+[node name="WaveHandler" parent="." index="7" unique_id=932217088]
+waves = Array[ExtResource("4_4faxc")]([SubResource("Resource_4faxc")])

@@ -3,8 +3,6 @@ class_name Level extends Node3D
 # TODO: Create enemyspawn area
 # Enemyspawn: Area where enemies are instantiated. Their hitbox only activates after leaving this area.
 
-# TODO: Componentize wave manager
-
 signal wave_change(new_wave: int, total_waves: int)
 signal health_change(new_health: int)
 
