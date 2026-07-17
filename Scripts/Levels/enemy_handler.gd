@@ -1,5 +1,6 @@
 extends Node3D
 
+
 signal enemy_exit(data)
 signal enemy_death(data)
 

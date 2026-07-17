@@ -1,14 +1,11 @@
 extends Node3D
 
-signal wave_change(new_wave: int, total_waves: int)
+
+signal wave_change(data: Dictionary)
 
 @export var waves: Array[WaveData]
 
-var wave_counter: int = 0:
-	set(value):
-		wave_counter = value
-	get():
-		return wave_counter
+var wave_counter: int = 0
 var wave_enemy_counter: int = 0
 
 
@@ -39,7 +36,7 @@ func check_wave_end() -> void:
 	if wave_enemy_counter == 0 && len(waves) > wave_counter+1:
 		await get_tree().create_timer(5).timeout
 		wave_counter += 1
-		wave_change.emit(wave_counter+1, len(waves))
+		wave_change.emit({ "new_wave": wave_counter+1 })
 		load_wave()
 
 

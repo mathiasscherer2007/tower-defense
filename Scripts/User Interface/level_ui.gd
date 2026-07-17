@@ -1,5 +1,6 @@
 extends Control
 
+
 @onready var wave_label = $Wave
 @onready var lives_label = $Lives
 @onready var fps_label = $FPS
@@ -14,9 +15,9 @@ func _process(_delta: float) -> void:
 	fps_label.text = "fps " + str(Engine.get_frames_per_second())
 
 
-func _on_health_change(lives: int) -> void:
-	lives_label.text = "Lives: " + str(lives)
+func _on_health_change(data: Dictionary) -> void:
+	lives_label.text = "Lives: " + str(data.get("lives"))
 
 
-func _on_wave_change(new_wave: int, wave_total: int) -> void:
-	wave_label.text = "Wave " + str(new_wave) + "/" + str(wave_total)
+func _on_wave_change(data: Dictionary) -> void:
+	wave_label.text = "Wave " + str(data.get("new_wave")) + "/" + str(data.get("total_waves"))

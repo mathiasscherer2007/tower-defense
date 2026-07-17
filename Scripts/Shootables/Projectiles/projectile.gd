@@ -1,5 +1,6 @@
 class_name Projectile extends Shootable
 
+
 var damage: float
 var speed: float
 var pierce: float = 1.0

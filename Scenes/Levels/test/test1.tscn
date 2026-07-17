@@ -40,9 +40,30 @@ amount = 5
 enemy = ExtResource("7_2ctv1")
 metadata/_custom_type_script = "uid://c2w3giqs0t26h"
 
+[sub_resource type="Resource" id="Resource_tq1so"]
+script = ExtResource("5_7wf1s")
+delay_wave = 4000
+delay_enemies = 500
+amount = 10
+enemy = ExtResource("7_2ctv1")
+metadata/_custom_type_script = "uid://c2w3giqs0t26h"
+
 [sub_resource type="Resource" id="Resource_4faxc"]
 script = ExtResource("4_4faxc")
-sub_waves = Array[ExtResource("5_7wf1s")]([SubResource("Resource_7wf1s")])
+sub_waves = Array[ExtResource("5_7wf1s")]([SubResource("Resource_7wf1s"), SubResource("Resource_tq1so")])
+metadata/_custom_type_script = "uid://c7qvossit4a6q"
+
+[sub_resource type="Resource" id="Resource_w0m1m"]
+script = ExtResource("5_7wf1s")
+delay_wave = 1000
+delay_enemies = 1000
+amount = 5
+enemy = ExtResource("7_2ctv1")
+metadata/_custom_type_script = "uid://c2w3giqs0t26h"
+
+[sub_resource type="Resource" id="Resource_avmbn"]
+script = ExtResource("4_4faxc")
+sub_waves = Array[ExtResource("5_7wf1s")]([SubResource("Resource_w0m1m")])
 metadata/_custom_type_script = "uid://c7qvossit4a6q"
 
 [node name="Level" unique_id=2011401683 instance=ExtResource("1_7joup")]
@@ -102,4 +123,4 @@ material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 5.139489)
 
 [node name="WaveHandler" parent="." index="7" unique_id=932217088]
-waves = Array[ExtResource("4_4faxc")]([SubResource("Resource_4faxc")])
+waves = Array[ExtResource("4_4faxc")]([SubResource("Resource_4faxc"), SubResource("Resource_avmbn")])

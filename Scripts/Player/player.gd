@@ -1,6 +1,7 @@
 extends Node3D
 
-signal health_change(new_health: int)
+
+signal health_change(data: Dictionary)
 
 @export var lives: int = 20
 @export var cash: int = 100
@@ -8,4 +9,4 @@ signal health_change(new_health: int)
 
 func _on_enemy_exit(data: Dictionary) -> void:
 	lives -= data.lives
-	health_change.emit(lives)
+	health_change.emit({ "lives": lives })
