@@ -16,6 +16,7 @@ var path_follow: PathFollow3D
 
 func setup(n_path_follow: PathFollow3D):
 	path_follow = n_path_follow
+	path_follow.set_loop(false)
 
 
 func _ready() -> void:
@@ -37,3 +38,10 @@ func _on_collision_take_damage(damage: float) -> void:
 		queue_free()
 	
 	health_number.text = str(int(ceil(health)))
+
+
+func get_path_progress() -> Dictionary:
+	return {
+		"progress": path_follow.get_progress(),
+		"progress_ratio": path_follow.get_progress_ratio()
+	}

@@ -1,9 +1,11 @@
 class_name Tower extends Node3D
 
-# TODO: more robust targeting system, make tower shoot enemy that is furthest in the track
+
+enum targeting_types {FIRST, LAST, CLOSE, STRONG} # will only implement first for now
 
 ## Radius of the range area in meters
 @export var max_range: float
+@export var targeting_type: targeting_types = targeting_types.FIRST
 ## Projectile shot by the tower
 @export_group("Projectile Properties")
 @export var projectile: PackedScene
@@ -15,12 +17,12 @@ class_name Tower extends Node3D
 @export_group("Mesh Properties")
 ## Meshes that look at target in all axis
 @export var look_meshes: Array[Node3D]
-## Meshes that look at target but don't rotate on the Y axis
+## Meshes that look at target only in the Y axis
 @export var rotate_meshes: Array[Node3D]
 
 var projectile_args: Dictionary
 var can_shoot: bool = true
-var enemies: Array
+var enemies_in_range: Array = []
 
 @onready var range_area = $Range/CollisionShape3D
 @onready var projectile_container = $Projectiles
@@ -42,15 +44,16 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if len(enemies) > 0:
-		shoot(enemies[0])
+	if len(enemies_in_range) > 0:
+		shoot()
 
 
-func shoot(enemy: Area3D) -> void:
+func shoot() -> void:
 	if can_shoot:
 		self.can_shoot = false
 		
-		var enemy_pos: Vector3 = enemy.global_position
+		var target: Enemy = determine_target(targeting_type)
+		var enemy_pos: Vector3 = target.global_position
 		
 		for node in look_meshes:
 			node.look_at(enemy_pos)
@@ -68,15 +71,54 @@ func shoot(enemy: Area3D) -> void:
 		timer.connect("timeout", _on_cooldown_timeout)
 
 
+func determine_target(targeting: targeting_types) -> Enemy:
+	var result = enemies_in_range[0]
+	
+	match targeting:
+		targeting_types.FIRST:
+			var dist = 0
+			for enemy in enemies_in_range:
+				var progress = enemy.get_path_progress().get("progress")
+				if progress > dist:
+					dist = progress
+					result = enemy
+		
+		targeting_types.LAST:
+			var dist = enemies_in_range[0].get_path_progress().get("progress")
+			for enemy in enemies_in_range:
+				var progress = enemy.get_path_progress().get("progress")
+				if progress < dist:
+					dist = progress
+					result = enemy
+		
+		targeting_types.CLOSE:
+			var smallest_distance = self.global_position.distance_to(enemies_in_range[0].global_position)
+			for enemy in enemies_in_range:
+				var distance = self.global_position.distance_to(enemy.global_position)
+				if distance < smallest_distance:
+					smallest_distance = distance
+					result = enemy
+		
+		targeting_types.STRONG:
+			var biggest_health = enemies_in_range[0].health
+			for enemy in enemies_in_range:
+				var health = enemy.health
+				if health > biggest_health:
+					biggest_health = health
+					result = enemy
+	
+	return result
+
+
 func _on_cooldown_timeout() -> void:
 	self.can_shoot = true
 
 
 func _on_range_area_entered(area: Area3D) -> void:
-	if area not in enemies:
-		enemies.append(area)
+	if area.get_parent() not in enemies_in_range:
+		enemies_in_range.append(area.get_parent())
 
 
 func _on_range_area_exited(area: Area3D) -> void:
-	if area in enemies:
-		enemies.erase(area)
+	if area.get_parent() in enemies_in_range:
+		enemies_in_range.erase(area.get_parent())

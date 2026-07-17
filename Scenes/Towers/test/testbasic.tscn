@@ -161,6 +161,7 @@ shadow_mesh = SubResource("ArrayMesh_m8cnj")
 
 [node name="TestBasic" unique_id=1272181662 node_paths=PackedStringArray("look_meshes", "rotate_meshes") instance=ExtResource("1_lcgip")]
 max_range = 10.0
+targeting_type = 1
 projectile = ExtResource("2_hoax2")
 damage = 5.0
 cooldown = 1.5

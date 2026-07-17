@@ -29,9 +29,6 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2qse"]
-albedo_color = Color(0.24840015, 0.24840018, 0.24840012, 1)
-
 [sub_resource type="Resource" id="Resource_7wf1s"]
 script = ExtResource("5_7wf1s")
 delay_wave = 500
@@ -66,6 +63,9 @@ script = ExtResource("4_4faxc")
 sub_waves = Array[ExtResource("5_7wf1s")]([SubResource("Resource_w0m1m")])
 metadata/_custom_type_script = "uid://c7qvossit4a6q"
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2qse"]
+albedo_color = Color(0.24840015, 0.24840018, 0.24840012, 1)
+
 [node name="Level" unique_id=2011401683 instance=ExtResource("1_7joup")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0" unique_id=1734798752]
@@ -76,21 +76,25 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=2044530278]
 environment = SubResource("Environment_u46i1")
 
-[node name="EnemyHandler" parent="." index="2" unique_id=932929914]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.05, 3)
-curve = SubResource("Curve3D_y5gs5")
-
-[node name="Camera3D" parent="." index="3" unique_id=1009776428]
+[node name="Camera3D" parent="." index="2" unique_id=1009776428]
 transform = Transform3D(0.7071068, 0.4055798, -0.579228, 0, 0.81915206, 0.57357645, 0.7071068, -0.4055798, 0.579228, -9.72, 9.555, 9.629)
 size = 13.0
 near = 0.01
 far = 100.0
 
+[node name="EnemyHandler" parent="." index="3" unique_id=932929914]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.05, 3)
+curve = SubResource("Curve3D_y5gs5")
+
 [node name="TestBasic" parent="Towers" parent_id_path=PackedInt32Array(1765927691) index="0" unique_id=1272181662 instance=ExtResource("2_y5gs5")]
-transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.64278764, 2.319121, 0, 3.0994253)
-damage = 10.0
-pierce = 2
-cooldown = 1.0
+transform = Transform3D(-0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, -0.64278764, -6.0529943, 0, -0.064600945)
+targeting_type = 2
+damage = 1.0
+pierce = 5
+cooldown = 0.1
+
+[node name="WaveHandler" parent="." index="5" unique_id=932217088]
+waves = Array[ExtResource("4_4faxc")]([SubResource("Resource_4faxc"), SubResource("Resource_avmbn")])
 
 [node name="Geometry" type="Node3D" parent="." index="6" unique_id=1567942913]
 
@@ -121,6 +125,3 @@ size = Vector3(1, 1, 7.310154)
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 2.5851102, -0.4499492, -0.011767387)
 material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 5.139489)
-
-[node name="WaveHandler" parent="." index="7" unique_id=932217088]
-waves = Array[ExtResource("4_4faxc")]([SubResource("Resource_4faxc"), SubResource("Resource_avmbn")])
