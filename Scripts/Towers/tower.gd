@@ -28,7 +28,7 @@ var enemies: Array
 
 
 func _ready() -> void:
-	if range_area.shape is CylinderShape3D:
+	if range_area.shape is SphereShape3D:
 		range_area.shape.radius = max_range
 	
 	projectile_args = {

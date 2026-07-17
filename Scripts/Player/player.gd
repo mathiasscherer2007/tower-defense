@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 
 signal health_change(data: Dictionary)

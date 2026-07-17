@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4xuuemxhwveb" path="res://Scripts/Towers/tower.gd" id="1_nh6md"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_d6h38"]
-height = 10.0
-radius = 0.001
+[sub_resource type="SphereShape3D" id="SphereShape3D_avmbn"]
 
 [node name="Tower" type="Node3D" unique_id=1272181662]
 script = ExtResource("1_nh6md")
@@ -17,7 +15,7 @@ script = ExtResource("1_nh6md")
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Range" unique_id=1003464765]
-shape = SubResource("CylinderShape3D_d6h38")
+shape = SubResource("SphereShape3D_avmbn")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=2144439341]
 one_shot = true

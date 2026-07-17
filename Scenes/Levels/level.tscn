@@ -9,18 +9,18 @@
 [node name="Level" type="Node3D" unique_id=2011401683]
 script = ExtResource("1_f1n8c")
 
-[node name="EnemyHandler" type="Path3D" parent="." unique_id=932929914]
-script = ExtResource("3_yjxcc")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1009776428]
 projection = 1
 fov = 54.0
 script = ExtResource("3_tq1so")
 
-[node name="Player" type="Node3D" parent="." unique_id=708351147]
-script = ExtResource("2_7x7pb")
+[node name="EnemyHandler" type="Path3D" parent="." unique_id=932929914]
+script = ExtResource("3_yjxcc")
 
 [node name="Towers" type="Node3D" parent="." unique_id=1765927691]
 
 [node name="WaveHandler" type="Node3D" parent="." unique_id=932217088]
 script = ExtResource("4_lkqqh")
+
+[node name="Player" type="Node" parent="." unique_id=269792513]
+script = ExtResource("2_7x7pb")
