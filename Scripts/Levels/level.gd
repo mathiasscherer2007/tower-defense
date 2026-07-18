@@ -25,11 +25,11 @@ var current_lives: int:
 @onready var enemy_handler = $EnemyHandler
 @onready var wave_handler = $WaveHandler
 @onready var player = $Player
-@onready var camera = $Camera3D
+@onready var camera_handler = $CameraHandler
 
 
 func _ready() -> void:
-	enemy_handler.enemy_exit.connect(camera._on_enemy_exit)
+	enemy_handler.enemy_exit.connect(camera_handler._on_enemy_exit)
 	enemy_handler.enemy_exit.connect(player._on_enemy_exit)
 	enemy_handler.enemy_exit.connect(wave_handler._on_enemy_exit)
 	enemy_handler.enemy_death.connect(wave_handler._on_enemy_death)
