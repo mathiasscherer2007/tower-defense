@@ -21,4 +21,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3623893, 0)
 billboard = 1
 font_size = 44
 
+[node name="Center" type="Node3D" parent="." unique_id=1394140018]
+
 [connection signal="take_damage" from="Collision" to="." method="_on_collision_take_damage"]

@@ -1,9 +1,9 @@
 extends Control
 
 
-@onready var wave_label = $Wave
-@onready var lives_label = $Lives
-@onready var fps_label = $FPS
+@onready var wave_label = $MarginContainer/Container/Wave
+@onready var lives_label = $MarginContainer/Container/Lives
+@onready var fps_label = $MarginContainer/FPS
 
 
 func setup(starter_health: int, total_waves: int) -> void:

@@ -10,6 +10,7 @@ signal died(data)
 @export var weight: int = 1
 
 @onready var health_number = $Health
+@onready var center = $Center
 
 var path_follow: PathFollow3D
 
@@ -38,6 +39,10 @@ func _on_collision_take_damage(damage: float) -> void:
 		queue_free()
 	
 	health_number.text = str(int(ceil(health)))
+
+
+func get_center_position() -> Vector3:
+	return center.global_position
 
 
 func get_path_progress() -> Dictionary:

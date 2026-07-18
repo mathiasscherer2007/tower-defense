@@ -30,3 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CollisionShape3D" parent="Collision" index="0" unique_id=139847431]
 shape = SubResource("CapsuleShape3D_duvtb")
+
+[node name="Center" parent="." index="4" unique_id=1394140018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -53,7 +53,7 @@ func shoot() -> void:
 		self.can_shoot = false
 		
 		var target: Enemy = determine_target(targeting_type)
-		var enemy_pos: Vector3 = target.global_position
+		var enemy_pos: Vector3 = target.get_center_position()
 		
 		for node in look_meshes:
 			node.look_at(enemy_pos)
