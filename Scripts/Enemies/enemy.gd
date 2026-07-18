@@ -6,6 +6,7 @@ signal died(data)
 
 @export var health: float
 @export var speed: float
+@export var cash_on_defeat: int
 ## Amount of lives this enemy takes upon reaching the end of the path
 @export var weight: int = 1
 
@@ -35,7 +36,7 @@ func _on_collision_take_damage(damage: float) -> void:
 	health -= damage
 	
 	if health <= 0:
-		died.emit({})
+		died.emit({ "cash": self.cash_on_defeat })
 		queue_free()
 	
 	health_number.text = str(int(ceil(health)))

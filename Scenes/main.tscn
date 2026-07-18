@@ -70,4 +70,14 @@ size_flags_vertical = 0
 text = "Lives: "
 label_settings = SubResource("LabelSettings_8gbba")
 
+[node name="Cash" type="Label" parent="CanvasLayer/UI/MarginContainer/Container" unique_id=832449674]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 48.0
+offset_bottom = 67.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Cash:"
+label_settings = SubResource("LabelSettings_8gbba")
+
 [node name="Level" parent="." unique_id=2011401683 instance=ExtResource("1_jjgbg")]

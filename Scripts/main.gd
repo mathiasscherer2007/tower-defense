@@ -6,7 +6,9 @@ extends Node3D
 
 
 func _ready() -> void:
-	ui.setup(level.current_lives, level.total_waves)
+	ui.setup(level.current_lives, level.total_waves, level.cash)
+	
 	
 	level.health_change.connect(ui._on_health_change)
 	level.wave_change.connect(ui._on_wave_change)
+	level.cash_change.connect(ui._on_cash_change)

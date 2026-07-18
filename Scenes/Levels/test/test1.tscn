@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cyc4kcccx26jy"]
 
 [ext_resource type="PackedScene" uid="uid://b4otkkg0v2n1g" path="res://Scenes/Levels/level.tscn" id="1_7joup"]
-[ext_resource type="Script" uid="uid://c0e81rg0tmd8y" path="res://Scripts/User Interface/camera_handler.gd" id="2_7wf1s"]
 [ext_resource type="PackedScene" uid="uid://dsd6jkwa7ae8g" path="res://Scenes/Towers/test/testbasic.tscn" id="2_y5gs5"]
 [ext_resource type="Material" uid="uid://cn6sc210jlp0i" path="res://Scenes/Levels/test/path_material.tres" id="3_u46i1"]
 [ext_resource type="Script" uid="uid://c7qvossit4a6q" path="res://Scripts/Types/wavedata.gd" id="4_4faxc"]
@@ -77,17 +76,13 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1" unique_id=2044530278]
 environment = SubResource("Environment_u46i1")
 
-[node name="CameraHandler" parent="." index="2" unique_id=1416941720]
-script = ExtResource("2_7wf1s")
-
-[node name="Camera3D" parent="CameraHandler" index="0" unique_id=1009776428]
+[node name="Camera3D" parent="CameraHandler" parent_id_path=PackedInt32Array(1416941720) index="0" unique_id=1009776428]
 transform = Transform3D(0.7071067, 0.35355338, -0.61237234, 0, 0.8660254, 0.49999997, 0.7071067, -0.35355338, 0.61237234, -9.72, 7.624242, 9.629)
 size = 13.0
 near = 0.01
 far = 100.0
-script = null
 
-[node name="TopView" parent="CameraHandler" index="1" unique_id=290820128]
+[node name="TopView" parent="CameraHandler" parent_id_path=PackedInt32Array(1416941720) index="1" unique_id=290820128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
 
 [node name="EnemyHandler" parent="." index="3" unique_id=932929914]
@@ -131,3 +126,6 @@ size = Vector3(1, 1, 7.310154)
 transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 2.5851102, -0.4499492, -0.011767387)
 material_override = ExtResource("3_u46i1")
 size = Vector3(1, 1, 5.139489)
+
+[node name="Player" parent="." index="7" unique_id=269792513]
+starter_cash = 100

@@ -16,6 +16,7 @@ height = 1.0
 
 [node name="Enemy" unique_id=1256829774 instance=ExtResource("1_duvtb")]
 speed = 3.0
+cash_on_defeat = 15
 
 [node name="MeshInstance3D" parent="." index="0" unique_id=691784335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
