@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1ljijd1c6d02"]
 
 [ext_resource type="Script" uid="uid://c4xuuemxhwveb" path="res://Scripts/Towers/tower.gd" id="1_nh6md"]
+[ext_resource type="Texture2D" uid="uid://dlbnk4uxbvb2u" path="res://Assets/Images/area_circle.png" id="2_d6h38"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_avmbn"]
 
@@ -19,6 +20,14 @@ shape = SubResource("SphereShape3D_avmbn")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=2144439341]
 one_shot = true
+
+[node name="RangeDecal" type="Decal" parent="." unique_id=1968474222]
+layers = 16
+texture_albedo = ExtResource("2_d6h38")
+texture_emission = ExtResource("2_d6h38")
+emission_energy = 0.05
+modulate = Color(1, 1, 1, 0.039215688)
+cull_mask = 8
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

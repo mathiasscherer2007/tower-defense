@@ -4,7 +4,7 @@ extends Control
 @onready var wave_label = $MarginContainer/Container/Wave
 @onready var lives_label = $MarginContainer/Container/Lives
 @onready var cash_label = $MarginContainer/Container/Cash
-@onready var fps_label = $MarginContainer/FPS
+@onready var fps_label = $MarginContainer/ContainerRight/FPS
 
 
 func setup(starter_health: int, total_waves: int, starter_cash: int) -> void:

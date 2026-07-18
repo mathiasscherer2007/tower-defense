@@ -101,10 +101,17 @@ waves = Array[ExtResource("4_4faxc")]([SubResource("Resource_4faxc"), SubResourc
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry" index="0" unique_id=1890026742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+layers = 8
 size = Vector3(30, 1, 30)
 material = SubResource("StandardMaterial3D_x2qse")
 
-[node name="Path" type="Node3D" parent="Geometry" index="1" unique_id=1571035114]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Geometry" index="1" unique_id=925491025]
+transform = Transform3D(0.27040052, 0, 0, 0, 1, 0, 0, 0, 0.27341396, 4.796589, 0.271008, -7.4946194)
+layers = 8
+size = Vector3(30, 1, 30)
+material = SubResource("StandardMaterial3D_x2qse")
+
+[node name="Path" type="Node3D" parent="Geometry" index="2" unique_id=1571035114]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 3)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Geometry/Path" index="0" unique_id=1482054756]

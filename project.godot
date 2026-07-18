@@ -84,6 +84,7 @@ ResetCamera={
 3d_render/layer_2="Projectiles"
 3d_render/layer_3="Towers"
 3d_render/layer_4="Geometry"
+3d_render/layer_5="Decals"
 3d_physics/layer_1="Enemies"
 3d_navigation/layer_1="Enemies"
 3d_physics/layer_2="Projectiles"
@@ -92,6 +93,8 @@ ResetCamera={
 3d_navigation/layer_3="Towers"
 3d_physics/layer_4="Geometry"
 3d_navigation/layer_4="Geometry"
+3d_physics/layer_5="Decals"
+3d_navigation/layer_5="Decals"
 
 [physics]
 
@@ -102,3 +105,4 @@ ResetCamera={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/decals/filter=0

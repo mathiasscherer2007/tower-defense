@@ -27,6 +27,7 @@ var enemies_in_range: Array = []
 @onready var range_area = $Range/CollisionShape3D
 @onready var projectile_container = $Projectiles
 @onready var projectile_spawn_point = find_child('ProjectileSpawnPoint')
+@onready var range_decal = $RangeDecal
 
 
 func _ready() -> void:
@@ -41,6 +42,8 @@ func _ready() -> void:
 		"speed": self.projectile_speed,
 		"lifetime": self.projectile_lifetime
 	}
+	
+	range_decal.size = Vector3(max_range * 2, max_range * 2, max_range * 2)
 
 
 func _process(_delta: float) -> void:

@@ -172,10 +172,12 @@ rotate_meshes = [NodePath("Mesh/Body"), NodePath("Mesh/Node3D")]
 
 [node name="Body" type="MeshInstance3D" parent="Mesh/Body" index="0" unique_id=692512777]
 transform = Transform3D(-3.934025e-08, 0, 0.9, 0, 1, 0, -0.9, 0, -3.934025e-08, 0, 0.88472444, 0)
+layers = 4
 mesh = SubResource("ArrayMesh_qq2rx")
 
 [node name="HandLeft" type="MeshInstance3D" parent="Mesh/Body" index="1" unique_id=582101799]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.46996677, 0.6858182, 0.08323871)
+layers = 4
 mesh = SubResource("ArrayMesh_ahktp")
 
 [node name="Head" type="Node3D" parent="Mesh" parent_id_path=PackedInt32Array(879682507) index="1" unique_id=1260572371]
@@ -183,16 +185,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6388189, 0)
 
 [node name="Head" type="MeshInstance3D" parent="Mesh/Head" index="0" unique_id=1566251589]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+layers = 4
 mesh = SubResource("ArrayMesh_3nsyy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh/Head" index="1" unique_id=1080342824]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.087510824, -0.173)
+layers = 4
 mesh = SubResource("TorusMesh_hoax2")
 
 [node name="Node3D" type="Node3D" parent="Mesh" parent_id_path=PackedInt32Array(879682507) index="2" unique_id=968839423]
 
 [node name="HandRight" type="MeshInstance3D" parent="Mesh/Node3D" index="0" unique_id=1409716230]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.36704567, 0.8522186, -0.53338045)
+layers = 4
 mesh = SubResource("ArrayMesh_ni4t6")
 
 [node name="ProjectileSpawnPoint" type="Node3D" parent="Mesh/Node3D/HandRight" index="0" unique_id=1372958672]
