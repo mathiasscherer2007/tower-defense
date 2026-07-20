@@ -34,7 +34,8 @@ window/vsync/vsync_mode=0
 folder_colors={
 "res://Assets/": "yellow",
 "res://Scenes/": "blue",
-"res://Scripts/": "teal"
+"res://Scripts/": "teal",
+"res://Shaders/": "red"
 }
 
 [global_group]
@@ -105,4 +106,4 @@ ResetCamera={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/decals/filter=0
+textures/decals/filter=1

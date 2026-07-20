@@ -23,16 +23,21 @@ enum targeting_types {FIRST, LAST, CLOSE, STRONG} # will only implement first fo
 var projectile_args: Dictionary
 var can_shoot: bool = true
 var enemies_in_range: Array = []
+var selected = false
 
 @onready var range_area = $Range/CollisionShape3D
+@onready var range_mesh = $Range/MeshInstance3D
 @onready var projectile_container = $Projectiles
 @onready var projectile_spawn_point = find_child('ProjectileSpawnPoint')
-@onready var range_decal = $RangeDecal
 
 
 func _ready() -> void:
 	if range_area.shape is SphereShape3D:
 		range_area.shape.radius = max_range
+	
+	range_mesh.scale.x = max_range * 2
+	range_mesh.scale.z = max_range * 2
+	range_mesh.visible = selected
 	
 	projectile_args = {
 		"target": null,
@@ -42,8 +47,6 @@ func _ready() -> void:
 		"speed": self.projectile_speed,
 		"lifetime": self.projectile_lifetime
 	}
-	
-	range_decal.size = Vector3(max_range * 2, max_range * 2, max_range * 2)
 
 
 func _process(_delta: float) -> void:
@@ -125,3 +128,8 @@ func _on_range_area_entered(area: Area3D) -> void:
 func _on_range_area_exited(area: Area3D) -> void:
 	if area.get_parent() in enemies_in_range:
 		enemies_in_range.erase(area.get_parent())
+
+
+func toggle_select() -> void:
+	self.selected = !self.selected
+	range_mesh.visible = selected

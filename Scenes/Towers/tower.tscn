@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://c1ljijd1c6d02"]
 
 [ext_resource type="Script" uid="uid://c4xuuemxhwveb" path="res://Scripts/Towers/tower.gd" id="1_nh6md"]
-[ext_resource type="Texture2D" uid="uid://dlbnk4uxbvb2u" path="res://Assets/Images/area_circle.png" id="2_d6h38"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_avmbn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd1cf"]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.05882353)
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x2qse"]
+material = SubResource("StandardMaterial3D_sd1cf")
+height = 0.01
+radial_segments = 32
+rings = 0
 
 [node name="Tower" type="Node3D" unique_id=1272181662]
 script = ExtResource("1_nh6md")
@@ -12,22 +26,23 @@ script = ExtResource("1_nh6md")
 
 [node name="Projectiles" type="Node3D" parent="." unique_id=27528614]
 
-[node name="Range" type="Area3D" parent="." unique_id=712720790]
+[node name="Hitbox" type="Area3D" parent="." unique_id=453137681]
 collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1463654904]
+
+[node name="Range" type="Area3D" parent="." unique_id=712720790]
+collision_layer = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Range" unique_id=1003464765]
 shape = SubResource("SphereShape3D_avmbn")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Range" unique_id=1526959967]
+mesh = SubResource("CylinderMesh_x2qse")
+
 [node name="Cooldown" type="Timer" parent="." unique_id=2144439341]
 one_shot = true
-
-[node name="RangeDecal" type="Decal" parent="." unique_id=1968474222]
-layers = 16
-texture_albedo = ExtResource("2_d6h38")
-texture_emission = ExtResource("2_d6h38")
-emission_energy = 0.05
-modulate = Color(1, 1, 1, 0.039215688)
-cull_mask = 8
 
 [connection signal="area_entered" from="Range" to="." method="_on_range_area_entered"]
 [connection signal="area_exited" from="Range" to="." method="_on_range_area_exited"]

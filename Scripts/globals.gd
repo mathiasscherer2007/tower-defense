@@ -5,3 +5,6 @@ extends Node
 
 var screen_shake_mult: float = 1.0
 var rng := RandomNumberGenerator.new()
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

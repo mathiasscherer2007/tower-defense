@@ -44,6 +44,7 @@ func _physics_process(_delta: float) -> void:
 			current_end
 		)
 		query.set_collide_with_areas(true)
+		query.set_collide_with_bodies(false)
 		query.set_collision_mask(0b00000000_00000000_00000000_00001001)
 		query.set_exclude(exclusion_list)
 		query.set_hit_back_faces(false)
