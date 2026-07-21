@@ -22,3 +22,9 @@ func _on_enemy_exit(data: Dictionary) -> void:
 func _on_enemy_death(data: Dictionary) -> void:
 	cash += data.get("cash")
 	cash_change.emit({ "cash": cash })
+
+
+func _on_tower_placed(data: Dictionary) -> void:
+	var tower_cost = data.get("price")
+	cash -= tower_cost
+	cash_change.emit({ "cash": self.cash })

@@ -161,8 +161,12 @@ shadow_mesh = SubResource("ArrayMesh_m8cnj")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5r4yd"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hoheq"]
+height = 4.0
+radius = 0.8
+
 [node name="TestBasic" unique_id=1272181662 node_paths=PackedStringArray("look_meshes", "rotate_meshes") instance=ExtResource("1_lcgip")]
-max_range = 10.0
+max_range = 6.0
 projectile = ExtResource("2_hoax2")
 damage = 5.0
 cooldown = 1.5
@@ -216,7 +220,11 @@ shape = SubResource("CylinderShape3D_5r4yd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="MeshInstance3D" parent="Range" index="1" unique_id=1526959967]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.98, 0)
 
-[node name="Cooldown" parent="." index="4" unique_id=2144439341]
+[node name="CollisionShape3D" parent="Footprint" parent_id_path=PackedInt32Array(1424510614) index="0" unique_id=1247270927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_hoheq")
+
+[node name="Cooldown" parent="." index="5" unique_id=2144439341]
 wait_time = 0.5

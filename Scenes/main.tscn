@@ -2,91 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cjppaj8g2acyq" path="res://Scripts/main.gd" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cyc4kcccx26jy" path="res://Scenes/Levels/test/test1.tscn" id="1_jjgbg"]
-[ext_resource type="Script" uid="uid://4wrut2wtgfyr" path="res://Scripts/User Interface/level_ui.gd" id="3_8gbba"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_bo1nx"]
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://ganwh2jlpq84" path="res://Scenes/User Interface/level_ui.tscn" id="2_8gbba"]
 
 [node name="Main" type="Node3D" unique_id=1285905166]
 script = ExtResource("1_bo1nx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=693412783]
 
-[node name="UI" type="Control" parent="CanvasLayer" unique_id=1289372040]
-propagate_maximum_size = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_8gbba")
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/UI" unique_id=757395120]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Container" type="Control" parent="CanvasLayer/UI/MarginContainer" unique_id=1998576758]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="Wave" type="Label" parent="CanvasLayer/UI/MarginContainer/Container" unique_id=1480328963]
-layout_mode = 0
-offset_right = 51.0
-offset_bottom = 23.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Wave: "
-label_settings = SubResource("LabelSettings_bo1nx")
-
-[node name="Lives" type="Label" parent="CanvasLayer/UI/MarginContainer/Container" unique_id=1807829110]
-layout_mode = 0
-offset_top = 22.0
-offset_right = 48.0
-offset_bottom = 45.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Lives: "
-label_settings = SubResource("LabelSettings_8gbba")
-
-[node name="Cash" type="Label" parent="CanvasLayer/UI/MarginContainer/Container" unique_id=832449674]
-layout_mode = 0
-offset_top = 44.0
-offset_right = 48.0
-offset_bottom = 67.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Cash:"
-label_settings = SubResource("LabelSettings_8gbba")
-
-[node name="ContainerRight" type="Control" parent="CanvasLayer/UI/MarginContainer" unique_id=2054759158]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-
-[node name="FPS" type="Label" parent="CanvasLayer/UI/MarginContainer/ContainerRight" unique_id=1176388952]
-layout_mode = 0
-offset_left = -89.0
-offset_bottom = 23.0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "FPS"
-label_settings = SubResource("LabelSettings_bo1nx")
-horizontal_alignment = 2
-uppercase = true
+[node name="UI" parent="CanvasLayer" unique_id=966338459 instance=ExtResource("2_8gbba")]
 
 [node name="Level" parent="." unique_id=2011401683 instance=ExtResource("1_jjgbg")]

@@ -1,4 +1,4 @@
-extends Node3D
+class_name CameraHandler extends Node3D
 
 
 var camera_shake_noise: FastNoiseLite = FastNoiseLite.new()
@@ -25,17 +25,7 @@ func _input(event: InputEvent) -> void:
 		camera.rotation.x = base_camera_data.get("camera_rotation").x
 	
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var space_state = get_world_3d().direct_space_state
-		var mouse_pos = get_viewport().get_mouse_position()
-		var from = camera.project_ray_origin(mouse_pos)
-		var to = from + camera.project_ray_normal(mouse_pos) * 1000
-		
-		var query = PhysicsRayQueryParameters3D.create(from, to)
-		query.set_collide_with_areas(true)
-		query.set_collide_with_bodies(false)
-		query.set_collision_mask(0b00000000_00000000_00000000_00000100)
-		var result = space_state.intersect_ray(query)
-		
+		var result = mousepos_raycast(0b00000000_00000000_00000000_00000100)
 		var clicked_tower = null
 		if result and result.get("collider"):
 			clicked_tower = result.get("collider").get_parent()
@@ -70,16 +60,7 @@ func _physics_process(delta: float) -> void:
 			self.rotation.y = 0.0
 			is_resetting_camera = false
 	
-	var space_state = get_world_3d().direct_space_state
-	var mouse_pos = get_viewport().get_mouse_position()
-	var from = camera.project_ray_origin(mouse_pos)
-	var to = from + camera.project_ray_normal(mouse_pos) * 1000
-	
-	var query = PhysicsRayQueryParameters3D.create(from, to)
-	query.set_collide_with_areas(true)
-	query.set_collide_with_bodies(false)
-	query.set_collision_mask(0b00000000_00000000_00000000_00000100)
-	var result = space_state.intersect_ray(query)
+	var result = mousepos_raycast(0b00000000_00000000_00000000_00000100)
 	if result:
 		pass
 	# TODO: Make a pointer that appears below a hovered tower, and stays 
@@ -95,3 +76,22 @@ func shake_camera(intensity: float) -> void:
 	var camera_offset = camera_shake_noise.get_noise_1d(Time.get_ticks_msec()) * intensity * Globals.screen_shake_mult
 	camera.h_offset = camera_offset/5
 	camera.v_offset = camera_offset/7
+
+
+func mousepos_raycast(collision_mask: int) -> Dictionary:
+	var space_state = get_world_3d().direct_space_state
+	var mouse_pos = get_viewport().get_mouse_position()
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * 1000
+	
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.set_collide_with_areas(true)
+	query.set_collide_with_bodies(false)
+	query.set_collision_mask(collision_mask)
+	var result = space_state.intersect_ray(query)
+	
+	return result
+
+
+func get_camera_position() -> Vector3:
+	return camera.global_position

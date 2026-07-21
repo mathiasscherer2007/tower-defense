@@ -1,10 +1,16 @@
 extends Control
 
+signal cash_change(data: Dictionary)
 
 @onready var wave_label = $MarginContainer/Container/Wave
 @onready var lives_label = $MarginContainer/Container/Lives
 @onready var cash_label = $MarginContainer/Container/Cash
 @onready var fps_label = $MarginContainer/ContainerRight/FPS
+
+
+func _ready() -> void:
+	for child in $MarginContainer/Control/TowerButtonContainer.get_children():
+		cash_change.connect(child._on_cash_change)
 
 
 func setup(starter_health: int, total_waves: int, starter_cash: int) -> void:
@@ -27,3 +33,8 @@ func _on_wave_change(data: Dictionary) -> void:
 
 func _on_cash_change(data: Dictionary) -> void:
 	cash_label.text = "Cash: " + str(data.get("cash"))
+	cash_change.emit({ "cash": data.get("cash") })
+
+
+func get_tower_button_container() -> Container:
+	return find_child("TowerButtonContainer", true)

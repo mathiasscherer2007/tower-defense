@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*uid://duvug7yrye1o0"
+Enums="*uid://bf71sgx6hrb0s"
 
 [display]
 
@@ -86,6 +87,8 @@ ResetCamera={
 3d_render/layer_3="Towers"
 3d_render/layer_4="Geometry"
 3d_render/layer_5="Decals"
+3d_render/layer_6="Footprints"
+3d_render/layer_7="EnemyPath"
 3d_physics/layer_1="Enemies"
 3d_navigation/layer_1="Enemies"
 3d_physics/layer_2="Projectiles"
@@ -96,6 +99,10 @@ ResetCamera={
 3d_navigation/layer_4="Geometry"
 3d_physics/layer_5="Decals"
 3d_navigation/layer_5="Decals"
+3d_physics/layer_6="Footprints"
+3d_navigation/layer_6="Footprints"
+3d_physics/layer_7="EnemyPath"
+3d_navigation/layer_7="EnemyPath"
 
 [physics]
 

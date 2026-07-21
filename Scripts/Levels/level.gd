@@ -31,6 +31,12 @@ var cash: int:
 @onready var wave_handler = $WaveHandler
 @onready var player = $Player
 @onready var camera_handler = $CameraHandler
+@onready var placement_handler = $PlacementHandler
+@onready var tower_handler = $TowerHandler
+
+
+func setup(args: Dictionary) -> void:
+	placement_handler.setup(args.get("ui-button-container"))
 
 
 func _ready() -> void:
@@ -44,6 +50,9 @@ func _ready() -> void:
 	wave_handler.wave_change.connect(_on_wave_change)
 	player.health_change.connect(_on_player_health_change)
 	player.cash_change.connect(_on_player_cash_change)
+	
+	placement_handler.tower_placed.connect(tower_handler._on_tower_placed)
+	placement_handler.tower_placed.connect(player._on_tower_placed)
 
 	wave_change.emit({ 
 		"current_wave": current_wave, 

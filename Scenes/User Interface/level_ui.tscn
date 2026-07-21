@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://ganwh2jlpq84"]
+
+[ext_resource type="Script" uid="uid://4wrut2wtgfyr" path="res://Scripts/User Interface/level_ui.gd" id="1_4m0px"]
+[ext_resource type="Script" uid="uid://oryg0eqir5d5" path="res://Scripts/User Interface/tower_button.gd" id="2_ytshh"]
+[ext_resource type="PackedScene" uid="uid://dsd6jkwa7ae8g" path="res://Scenes/Towers/test/testbasic.tscn" id="3_pqnd2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bo1nx"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control" unique_id=966338459]
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4m0px")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1922171405]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Container" type="Control" parent="MarginContainer" unique_id=1529698486]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Wave" type="Label" parent="MarginContainer/Container" unique_id=1172309245]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Wave: "
+label_settings = SubResource("LabelSettings_bo1nx")
+
+[node name="Lives" type="Label" parent="MarginContainer/Container" unique_id=457783884]
+layout_mode = 0
+offset_top = 22.0
+offset_right = 48.0
+offset_bottom = 45.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Lives: "
+label_settings = SubResource("LabelSettings_8gbba")
+
+[node name="Cash" type="Label" parent="MarginContainer/Container" unique_id=1961297689]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 48.0
+offset_bottom = 67.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Cash:"
+label_settings = SubResource("LabelSettings_8gbba")
+
+[node name="ContainerRight" type="Control" parent="MarginContainer" unique_id=645845013]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="FPS" type="Label" parent="MarginContainer/ContainerRight" unique_id=1468314748]
+layout_mode = 0
+offset_left = -89.0
+offset_bottom = 23.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "FPS"
+label_settings = SubResource("LabelSettings_bo1nx")
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=1832100700]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="TowerButtonContainer" type="HBoxContainer" parent="MarginContainer/Control" unique_id=1465569241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="MarginContainer/Control/TowerButtonContainer" unique_id=1808764231]
+layout_mode = 2
+text = "50"
+script = ExtResource("2_ytshh")
+tower_scene = ExtResource("3_pqnd2")
+price = 20

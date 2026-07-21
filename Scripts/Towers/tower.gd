@@ -1,11 +1,9 @@
 class_name Tower extends Node3D
 
 
-enum targeting_types {FIRST, LAST, CLOSE, STRONG} # will only implement first for now
-
 ## Radius of the range area in meters
 @export var max_range: float
-@export var targeting_type: targeting_types = targeting_types.FIRST
+@export var targeting_type: Enums.targeting_types = Enums.targeting_types.FIRST
 ## Projectile shot by the tower
 @export_group("Projectile Properties")
 @export var projectile: PackedScene
@@ -23,17 +21,20 @@ enum targeting_types {FIRST, LAST, CLOSE, STRONG} # will only implement first fo
 var projectile_args: Dictionary
 var can_shoot: bool = true
 var enemies_in_range: Array = []
-var selected = false
+var selected = true
+var mode = Enums.tower_modes.PLACEMENT
 
-@onready var range_area = $Range/CollisionShape3D
+@onready var range_area_shape = $Range/CollisionShape3D
 @onready var range_mesh = $Range/MeshInstance3D
+@onready var range_area = $Range
+@onready var hitbox = $Hitbox
 @onready var projectile_container = $Projectiles
 @onready var projectile_spawn_point = find_child('ProjectileSpawnPoint')
 
 
 func _ready() -> void:
-	if range_area.shape is SphereShape3D:
-		range_area.shape.radius = max_range
+	if range_area_shape.shape is SphereShape3D:
+		range_area_shape.shape.radius = max_range
 	
 	range_mesh.scale.x = max_range * 2
 	range_mesh.scale.z = max_range * 2
@@ -47,6 +48,15 @@ func _ready() -> void:
 		"speed": self.projectile_speed,
 		"lifetime": self.projectile_lifetime
 	}
+	
+	if mode == Enums.tower_modes.TOWER:
+		activate()
+
+
+func activate() -> void: # for when the tower goes from placement mode to "tower mode"
+	range_area.set_monitoring(true)
+	hitbox.set_monitoring(true)
+	toggle_select()
 
 
 func _process(_delta: float) -> void:
@@ -77,11 +87,11 @@ func shoot() -> void:
 		timer.connect("timeout", _on_cooldown_timeout)
 
 
-func determine_target(targeting: targeting_types) -> Enemy:
+func determine_target(targeting: Enums.targeting_types) -> Enemy:
 	var result = enemies_in_range[0]
 	
 	match targeting:
-		targeting_types.FIRST:
+		Enums.targeting_types.FIRST:
 			var dist = 0
 			for enemy in enemies_in_range:
 				var progress = enemy.get_path_progress().get("progress")
@@ -89,7 +99,7 @@ func determine_target(targeting: targeting_types) -> Enemy:
 					dist = progress
 					result = enemy
 		
-		targeting_types.LAST:
+		Enums.targeting_types.LAST:
 			var dist = enemies_in_range[0].get_path_progress().get("progress")
 			for enemy in enemies_in_range:
 				var progress = enemy.get_path_progress().get("progress")
@@ -97,7 +107,7 @@ func determine_target(targeting: targeting_types) -> Enemy:
 					dist = progress
 					result = enemy
 		
-		targeting_types.CLOSE:
+		Enums.targeting_types.CLOSE:
 			var smallest_distance = self.global_position.distance_to(enemies_in_range[0].global_position)
 			for enemy in enemies_in_range:
 				var distance = self.global_position.distance_to(enemy.global_position)
@@ -105,7 +115,7 @@ func determine_target(targeting: targeting_types) -> Enemy:
 					smallest_distance = distance
 					result = enemy
 		
-		targeting_types.STRONG:
+		Enums.targeting_types.STRONG:
 			var biggest_health = enemies_in_range[0].health
 			for enemy in enemies_in_range:
 				var health = enemy.health

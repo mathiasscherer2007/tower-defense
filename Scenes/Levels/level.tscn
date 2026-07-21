@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://d12asrtuhipwj" path="res://Scripts/Player/player.gd" id="2_7x7pb"]
 [ext_resource type="Script" uid="uid://c0e81rg0tmd8y" path="res://Scripts/User Interface/camera_handler.gd" id="3_tq1so"]
 [ext_resource type="Script" uid="uid://bcicqcj7lwhda" path="res://Scripts/Levels/enemy_handler.gd" id="3_yjxcc"]
+[ext_resource type="Script" uid="uid://b23ss3oudspfs" path="res://Scripts/Levels/tower_handler.gd" id="4_lhx7y"]
 [ext_resource type="Script" uid="uid://deofo65uidnb8" path="res://Scripts/Levels/wave_handler.gd" id="4_lkqqh"]
+[ext_resource type="Script" uid="uid://dkuhnuppj4jts" path="res://Scripts/Levels/placement_handler.gd" id="5_rv5g2"]
 
 [node name="Level" type="Node3D" unique_id=2011401683]
 script = ExtResource("1_f1n8c")
@@ -21,10 +23,14 @@ fov = 54.0
 [node name="EnemyHandler" type="Path3D" parent="." unique_id=932929914]
 script = ExtResource("3_yjxcc")
 
-[node name="Towers" type="Node3D" parent="." unique_id=1765927691]
+[node name="TowerHandler" type="Node3D" parent="." unique_id=1765927691]
+script = ExtResource("4_lhx7y")
 
 [node name="WaveHandler" type="Node3D" parent="." unique_id=932217088]
 script = ExtResource("4_lkqqh")
+
+[node name="PlacementHandler" type="Node3D" parent="." unique_id=448176626]
+script = ExtResource("5_rv5g2")
 
 [node name="Player" type="Node" parent="." unique_id=269792513]
 script = ExtResource("2_7x7pb")
